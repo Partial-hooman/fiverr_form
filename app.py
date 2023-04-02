@@ -1,5 +1,7 @@
 import streamlit_survey as ss
 import streamlit as st
+import copy
+
 
 f = open('manufacturers.csv', 'r')
 
