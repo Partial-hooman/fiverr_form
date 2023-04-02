@@ -15,9 +15,10 @@ f_i = (f.read()).split('\n')
 
 
 survey = ss.StreamlitSurvey()
-pages = survey.pages(len(f_i), on_submit=lambda: st.success("Your responses have been recorded. Thank you!"))
+pages = survey.pages(1, on_submit=lambda: st.success("Your responses have been recorded. Thank you!"))
 with pages:
-     survey.radio('select from the following',options=f_i[pages.current].split(','),index=0,horizontal=True,label_visibility="collapsed")
+     For x in f_i:
+         survey.radio('select from the following',options=x.split(','),index=0,horizontal=True,label_visibility="collapsed")
      
         
             
