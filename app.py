@@ -20,7 +20,7 @@ with st.form('survey',clear_on_submit=True):
       
      submit = st.form_submit_button('submit')
      if submit:
-          st.write(radio)
+          st.write(','.join(radio))
           
  
      
