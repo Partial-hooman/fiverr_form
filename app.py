@@ -30,7 +30,7 @@ pages = survey.pages(len(f_i), on_submit=lambda: st.write(Selection)) #st.succes
 
 with pages:
      radio = survey.radio('select from the following',options=f_i[pages.current].split(','),index=0,horizontal=True,label_visibility="collapsed")
-     stri = radio
+     stri = copy.deepcopy(radio)
      if pages.next:
         Selection.append(stri)
         st.write(Selection)
