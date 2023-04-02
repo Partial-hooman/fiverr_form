@@ -25,7 +25,6 @@ survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
 pages = survey.pages(len(f_i), on_submit=lambda: download(survey.to_json()))
 with pages:
          survey.radio(
-            "row"+str(pages.current),
             options=f_i[pages.current].split(','),
             index=0,
             label_visibility="collapsed",
