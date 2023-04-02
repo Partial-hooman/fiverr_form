@@ -1,6 +1,5 @@
-import streamlit_survey as ss
 import streamlit as st
-import copy
+
 
 num = 0
 radio=[]
@@ -9,7 +8,6 @@ f = open('manufacturers.csv', 'r')
 
 f_i = (f.read()).split('\n')
 
-Selection=['placer']
 
 
 
