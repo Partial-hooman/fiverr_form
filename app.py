@@ -7,7 +7,6 @@ def download(json):
          csv = df.to_csv()
          csv1 = csv.split('\n') 
          csv1.pop(1)
-         csv1.pop(3)
          st.write(csv1)
          st.download_button(
                              label="Download selection as CSV",
