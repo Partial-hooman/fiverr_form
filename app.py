@@ -8,10 +8,11 @@ def download(json):
          data = str(csv)
          data1 = data.replace('label','')
          data2 = data.replace('value','')
+         csv1 = data2.to_csv().encode('utf-8')
          st.write(data2)
          st.download_button(
                              label="Download selection as CSV",
-                             data=csv,
+                             data=csv1,
                              file_name='output.csv',
                              mime='text/csv',
                             )
