@@ -32,8 +32,6 @@ with pages:
      radio = survey.radio('select from the following',options=f_i[pages.current].split(','),index=0,horizontal=True,label_visibility="collapsed")
      if pages.next:
         Selection.append(radio)
-     elif pages.previous:
-        Selection.pop()
      
 
 
