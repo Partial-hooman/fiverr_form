@@ -15,7 +15,7 @@ Selection=['placer']
 
 
 survey = ss.StreamlitSurvey()
-pages = survey.pages(len(f_i), on_submit=lambda: st.write(survey))
+pages = survey.pages(len(f_i), on_submit=lambda: st.write(survey.data))
 
 with pages:
      radio = survey.radio('select from the following',options=f_i[pages.current].split(','),index=0,horizontal=True,label_visibility="collapsed")
