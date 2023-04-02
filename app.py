@@ -7,9 +7,9 @@ def download(json):
          csv = df.to_csv()
          csv1 = csv.replace('value','').replace('label','')
          csv2 = csv1.split(',') 
-         list(filter(lambda a: a != "", csv2))
-         list(filter(lambda a: a != " ", csv2))
-         st.write(csv2)
+         csv3 = list(filter(lambda a: a != "", csv2))
+         csv4 = list(filter(lambda a: a != " ", csv3))
+         st.write(csv4)
          st.download_button(
                              label="Download selection as CSV",
                              data=csv1,
