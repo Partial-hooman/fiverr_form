@@ -14,7 +14,7 @@ Selection=['placer']
 
 
 with st.form(clear_on_submit=True):
-     radio = st.radio('select from following',f_i[num])
+     radio = st.radio('select from following',(f_i[num].split(',')))
  
      
 
