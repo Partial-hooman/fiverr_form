@@ -14,7 +14,9 @@ Selection=['placer']
 
 
 with st.form('survey',clear_on_submit=True):
-     radio = st.radio('select from following',(f_i[num].split(',')))
+     for x in f_i:
+          radio = st.radio('select from following',(x.split(',')))
+      
      submit = st.form_submit_button('submit')
  
      
