@@ -17,7 +17,7 @@ f_i = (f.read()).split('\n')
 survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
 pages = survey.pages(len(f_i), on_submit=lambda: st.success("Your responses have been recorded. Thank you!"))
 with pages:
-     survey.radio(options=f_i[pages.current].split('\n'),index=pages.current,horizontal=True)
+     survey.radio(options=f_i[pages.current].split('\n'),index=0,horizontal=True)
         
         
             
