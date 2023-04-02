@@ -11,7 +11,8 @@ f_i = (f.read()).split('\n')
 survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
 pages = survey.pages(len(f_i), on_submit=lambda: st.json(survey.to_json()))
 with pages:
-     globals()["radio"+str(pages.current)] = survey.radio("select from following", options=f_i[pages.current].split(','),index=0,label_visibility="collapsed", horizontal=True)
+     if pages:
+          globals()["radio"+str(pages.current)] = survey.radio("select from following", options=f_i[pages.current].split(','),index=0,label_visibility="collapsed", horizontal=True)
     #if pages.current == 0:
         #st.write("Have you used Streamlit before?")
         #used_0 = survey.radio(
