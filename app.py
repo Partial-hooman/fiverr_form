@@ -11,12 +11,12 @@ f_i = (f.read()).split('\n')
 survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
 pages = survey.pages(len(f_i), on_submit=lambda: st.json(survey.to_json()))
 with pages:
-    if pages.current == pages.current :
          survey.radio(
             "select_from_following",
             options=f_i[pages.current].split(','),
             index=0,
             label_visibility="collapsed",
             horizontal=True,
+            id=str(pages.current)
         )
     
