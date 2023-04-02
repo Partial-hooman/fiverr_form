@@ -15,7 +15,7 @@ f_i = (f.read()).split('\n')
 
 
 survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
-pages = survey.pages(f_i.size() - 1, on_submit=lambda: st.success("Your responses have been recorded. Thank you!"))
+pages = survey.pages(len(f_i) - 1, on_submit=lambda: st.success("Your responses have been recorded. Thank you!"))
 with pages:
      if pages.current == 0:
         st.write("Have you used Streamlit before?")
