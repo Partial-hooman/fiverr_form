@@ -8,8 +8,8 @@ def download(json):
          csv1 = csv.replace('value','').replace('label','')
          csv2 = csv1.split(',') 
          csv3 = list(filter(lambda a: a != "", csv2))
-         csv4 = list(filter(lambda a: a != " ", csv3))
-         csv5 = ','.join(csv4)
+         #csv4 = list(filter(lambda a: a != " ", csv3))
+         csv5 = ','.join(csv3)
          st.write(csv5)
          st.download_button(
                              label="Download selection as CSV",
