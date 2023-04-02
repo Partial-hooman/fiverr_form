@@ -8,7 +8,7 @@ f = open('manufacturers.csv', 'r')
 
 f_i = (f.read()).split('\n')
 
-form = st.form('survey',clear_on_submit=True):
+form = st.form('survey',clear_on_submit=True)
 
 
 
