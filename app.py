@@ -5,12 +5,11 @@ import pandas as pd
 def download(json):
          df = pd.read_json(json)
          csv = df.to_csv()
-         csv1 = csv.pop('label')
-         csv2 = csv.replace('value','')
-         st.write(csv2)
+         csv1 = csv.replace('value','').replace('label','') 
+         st.write(csv1)
          st.download_button(
                              label="Download selection as CSV",
-                             data=csv2,
+                             data=csv1,
                              file_name='output.csv',
                              mime='text/csv',
                             )
