@@ -10,7 +10,7 @@ f = open('manufacturers.csv', 'r')
 f_i = (f.read()).split('\n')
 
 survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
-pages = survey.pages(len(f_i), on_submit=lambda: st.write((pd.read_json(survey.to_json())).to_csv())
+pages = survey.pages(len(f_i), on_submit=lambda: st.write((pd.read_json(survey.to_json())).to_csv()))
 with pages:
          survey.radio(
             "select_from_following",
