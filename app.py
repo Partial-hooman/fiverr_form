@@ -20,7 +20,7 @@ with pages:
      if pages.current == 0:
         st.write("Have you used Streamlit before?")
         for x in f_i:
-            st.write(x) 
+            st.write(f_i[0]) 
              #used_before = survey.radio(
                                    #"used_st_before",
                                    #  options=x,
