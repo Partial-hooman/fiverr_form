@@ -15,7 +15,7 @@ f_i = (f.read()).split('\n')
 
 
 survey = ss.StreamlitSurvey()
-pages = survey.pages(len(f_i), on_submit=lambda: st.success("Your responses have been recorded. Thank you!"), st.json(survey.to_json()))
+pages = survey.pages(len(f_i), on_submit=lambda: st.json(survey.to_json()))
 with pages:
      survey.radio('select from the following',options=f_i[pages.current].split(','),index=0,horizontal=True,label_visibility="collapsed")
      
