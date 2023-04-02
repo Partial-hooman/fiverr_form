@@ -26,7 +26,7 @@ Selection=['placer']
  
 
 survey = ss.StreamlitSurvey()
-pages = survey.pages(len(f_i), on_submit=lambda: St.write(Selection) #st.success("Your responses have been recorded. Thank you!"))
+pages = survey.pages(len(f_i), on_submit=lambda: St.write(Selection)) #st.success("Your responses have been recorded. Thank you!"))
 
 
                   
