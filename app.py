@@ -1,6 +1,6 @@
-import streamlit as st
+import streamlit-survey as ss
 
-survey = st.StreamlitSurvey("Survey Example - Advanced Usage")
+survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
 pages = survey.pages(2, on_submit=lambda: st.success("Your responses have been recorded. Thank you!"))
 with pages:
      if pages.current == 0:
