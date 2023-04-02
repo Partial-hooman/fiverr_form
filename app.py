@@ -34,7 +34,7 @@ with pages:
      radio = survey.radio('select from the following',options=f_i[pages.current].split(','),index=0,horizontal=True,label_visibility="collapsed")
      stri = copy.deepcopy(radio)
      if pages.next:
-        Selection.append(stri)
+        Selection += stri
         st.write(Selection)
      
 
