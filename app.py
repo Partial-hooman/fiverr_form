@@ -9,7 +9,7 @@ f = open('manufacturers.csv', 'r')
 f_i = (f.read()).split('\n')
 
 survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
-pages = survey.pages(2, on_submit=lambda: st.success("Your responses have been recorded. Thank you!"))
+pages = survey.pages(2, on_submit=lambda: st.json(survey.json()))
 with pages:
     if pages.current == 0:
         st.write("Have you used Streamlit before?")
