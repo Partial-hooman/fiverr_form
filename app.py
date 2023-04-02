@@ -33,6 +33,7 @@ with pages:
      stri = radio
      if pages.next:
         Selection.append(stri)
+        st.write(Selection)
      
 
 
