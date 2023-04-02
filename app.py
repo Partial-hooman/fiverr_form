@@ -9,7 +9,7 @@ def download(json):
          csv1.pop(1)
          csv1.pop(2)
          csv2=[csv1[0][1:],csv1[1].replace('value,','')]
-         CSV='/n'.join(csv2)
+         CSV='\n'.join(csv2)
          st.write(CSV)
          st.download_button(
                              label="Download selection as CSV",
