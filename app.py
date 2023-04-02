@@ -6,9 +6,9 @@ def download(json):
          df = pd.read_json(json)
          csv = df.to_csv().encode('utf-8')
          data = str(csv)
-         data.replace('label','')
-         data.replace('value','')
-         st.write(data)
+         data1 = data.replace('label','')
+         data2 = data.replace('value','')
+         st.write(data2)
          st.download_button(
                              label="Download selection as CSV",
                              data=csv,
