@@ -23,7 +23,7 @@ with pages:
             #st.write(f_i[0]) 
             survey.radio(
                          "used_st_before",
-                          options=x,
+                          options=x.split(','),
                           index=0,
                           label_visibility="collapsed",
                           horizontal=True,
