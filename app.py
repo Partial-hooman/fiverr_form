@@ -11,49 +11,88 @@ f_i = (f.read()).split('\n')
 survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
 pages = survey.pages(len(f_i), on_submit=lambda: st.json(survey.to_json()))
 with pages:
-     if pages:
-          globals()["radio"+str(pages.current)] = survey.radio("select from following", options=f_i[pages.current].split(','),index=0,label_visibility="collapsed", horizontal=True)
-    #if pages.current == 0:
-        #st.write("Have you used Streamlit before?")
-        #used_0 = survey.radio(
-        #    "select_from_following",
-        #    options=f_i[pages.current].split(','),
-        #    index=0,
-        #    label_visibility="collapsed",
-        #    horizontal=True,
-        #)
-    #elif pages.current == 1:
-        #st.write("Have you used Streamlit before?")
-        #used_1 = survey.radio(
-        #    "select_from_following",
-        #   options=f_i[pages.current].split(','),
-        #    index=0,
-        #    label_visibility="collapsed",
-        #    horizontal=True,
-        #)
-    #elif pages.current == 2:
-        #st.write("Have you used Streamlit before?")
-        #used_2 = survey.radio(
-        #    "select_from_following",
-        #    options=f_i[pages.current].split(','),
-        #    index=0,
-        #    label_visibility="collapsed",
-        #    horizontal=True,
-        #)
-    #elif pages.current == 3:
-        # pass
-    #elif pages.current == 4:
-        # pass
-    #elif pages.current == 5:
-        # pass
-    #elif pages.current == 6:
-        # pass
-    #elif pages.current == 7:
-        # pass
-    #elif pages.current == 8:
-        # pass
-    #elif pages.current == 9:
-        # pass
+    if pages.current == 0:
+        used_0 = survey.radio(
+            "select_from_following",
+            options=f_i[pages.current].split(','),
+            index=0,
+            label_visibility="collapsed",
+            horizontal=True,
+        )
+    elif pages.current == 1:
+        used_1 = survey.radio(
+            "select_from_following",
+           options=f_i[pages.current].split(','),
+            index=0,
+            label_visibility="collapsed",
+            horizontal=True,
+        )
+    elif pages.current == 2:
+        used_2 = survey.radio(
+            "select_from_following",
+            options=f_i[pages.current].split(','),
+            index=0,
+            label_visibility="collapsed",
+            horizontal=True,
+        )
+    elif pages.current == 3:
+        used_3 = survey.radio(
+            "select_from_following",
+            options=f_i[pages.current].split(','),
+            index=0,
+            label_visibility="collapsed",
+            horizontal=True,
+        )
+         
+    elif pages.current == 4:
+        used_4 = survey.radio(
+            "select_from_following",
+            options=f_i[pages.current].split(','),
+            index=0,
+            label_visibility="collapsed",
+            horizontal=True,
+        )
+         
+    elif pages.current == 5:
+        used_5 = survey.radio(
+            "select_from_following",
+            options=f_i[pages.current].split(','),
+            index=0,
+            label_visibility="collapsed",
+            horizontal=True,
+        )
+    elif pages.current == 6:
+        used_6 = survey.radio(
+            "select_from_following",
+            options=f_i[pages.current].split(','),
+            index=0,
+            label_visibility="collapsed",
+            horizontal=True,
+        )
+    elif pages.current == 7:
+        used_7 = survey.radio(
+            "select_from_following",
+            options=f_i[pages.current].split(','),
+            index=0,
+            label_visibility="collapsed",
+            horizontal=True,
+        )
+    elif pages.current == 8:
+        used_8 = survey.radio(
+            "select_from_following",
+            options=f_i[pages.current].split(','),
+            index=0,
+            label_visibility="collapsed",
+            horizontal=True,
+        )
+    elif pages.current == 9:
+        used_9 = survey.radio(
+            "select_from_following",
+            options=f_i[pages.current].split(','),
+            index=0,
+            label_visibility="collapsed",
+            horizontal=True,
+        )
  
      
 
