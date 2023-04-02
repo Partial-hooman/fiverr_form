@@ -20,11 +20,11 @@ with pages:
      if pages.current == 0:
         st.write("Have you used Streamlit before?")
         for x in f_i:
-            st.write(f_i[0]) 
-             #used_before = survey.radio(
-                                   #"used_st_before",
-                                   #  options=x,
-                                   #  index=0,
-                                   #  label_visibility="collapsed",
-                                   # horizontal=True,
-                                   #  )
+            #st.write(f_i[0]) 
+            survey.radio(
+                         "used_st_before",
+                          options=x,
+                          index=0,
+                          label_visibility="collapsed",
+                          horizontal=True,
+                          )
