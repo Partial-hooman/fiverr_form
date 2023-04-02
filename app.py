@@ -2,6 +2,7 @@ import streamlit_survey as ss
 import streamlit as st
 import copy
 
+num = 0
 
 f = open('manufacturers.csv', 'r')
 
@@ -12,26 +13,8 @@ Selection=['placer']
 
 
 
-
-
-
-
-#survey = ss.StreamlitSurvey()
-#pages = survey.pages(len(f_i), on_submit=lambda: St.write(Selection) #st.success("Your responses have been recorded. Thank you!"))
-
-#with pages:
-     #radio = survey.radio('select from the following',options=f_i[pages.current].split(','),index=0,horizontal=True,label_visibility="collapsed")
-     #if pages.next:
-        #Selection.append(radio)
-     #elif pages.previous:
-        #Selection.pop()
- 
-
-survey = ss.StreamlitSurvey()
-pages = survey.pages(len(f_i), on_submit=lambda:  st.success("Your responses have been recorded. Thank you!"))
-
-with pages:
-     radio = survey.radio('select from the following',options=f_i[pages.current].split(','),index=0,horizontal=True,label_visibility="collapsed")
+with st.form('select from following', clear_on_submit=True):
+     radio = st.radio(f_i[num])
  
      
 
