@@ -19,7 +19,11 @@ pages = survey.pages(len(f_i), on_submit=lambda: st.success("Your responses have
 
 with pages:
      radio = survey.radio('select from the following',options=f_i[pages.current].split(','),index=0,horizontal=True,label_visibility="collapsed")
-    
+     if pages.next:
+        Selection.append(radio)
+     elif pages.previous:
+        Selection.pop()
+ 
 
      
         
