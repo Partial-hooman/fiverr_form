@@ -12,7 +12,7 @@ def download(json):
          st.write(csv2)
          st.download_button(
                              label="Download selection as CSV",
-                             data=csv2,
+                             data=csv,
                              file_name='output.csv',
                              mime='text/csv',
                             )
