@@ -129,7 +129,7 @@ def calculate_and_plot_user_preference(input,S,G,O,T):
    user_pref = list(filter(lambda x: prefs[x] == max(pref), prefs))[0]
    st.write("User preference is " + user_pref)
    P_df = pd.DataFrame(dict(r=[S,G,O,T],theta=["S","G","O","T"]))
-   fig = px.line_polar(P_df, r='r', theta='theta',color='black', line_close=True)
+   fig = px.line_polar(P_df, r='r', theta='theta',color='theta', line_close=True)
    st.write(fig)
    st.write(S,G,O,T)
 
