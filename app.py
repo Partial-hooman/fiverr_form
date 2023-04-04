@@ -32,7 +32,7 @@ O = 0
 T = 0
 
 
-def calculate_and_plot_user_preference(input,x,y,z,w):
+def calculate_and_plot_user_preference(input,S,G,O,T):
    if input[0] in B:
        S += 1
    elif input[0] in D:
@@ -146,7 +146,7 @@ f_i = (f.read()).split('\n')
 
 
 survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
-pages = survey.pages(len(f_i), on_submit=lambda: calculate_and_plot_user_preference(input_selection(survey.to_json()))) # the survey is first converted to json after which it is given to the download function to download the CSV output
+pages = survey.pages(len(f_i), on_submit=lambda: calculate_and_plot_user_preference(input_selection(survey.to_json()),S,G,O,T)) # the survey is first converted to json after which it is given to the download function to download the CSV output
 
 # generating the survey radios
 
