@@ -6,7 +6,7 @@ import pandas as pd
 
 #the download function to download the csv output, which first takes output as a json file
 
-#def download(json):
+def download(json):
          df = pd.read_json(json) 
          csv = df.to_csv() #the json is converted into csv
          csv1 = csv.split('\n') #the CSV is converted to an array to remove the unecessary rows and columns
@@ -45,7 +45,7 @@ f_i = (f.read()).split('\n')
 
 
 survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
-pages = survey.pages(len(f_i), on_submit=lambda: download(survey.to_json())) # the survey is first converted to json after which it is given to the download function to download the CSV output
+pages = survey.pages(len(f_i), on_submit=lambda: st.write(download(survey.to_json()))) # the survey is first converted to json after which it is given to the download function to download the CSV output
 
 # generating the survey radios
 
