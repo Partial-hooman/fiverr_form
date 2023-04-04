@@ -7,22 +7,15 @@ import pandas as pd
 #the download function to download the csv output, which first takes output as a json file
 
 #def download(json):
-        # df = pd.read_json(json) 
-        # csv = df.to_csv() #the json is converted into csv
-        # csv1 = csv.split('\n') #the CSV is converted to an array to remove the unecessary rows and columns
-        # removing unecessary rows and columns 
-        # csv1.pop(1)
-        # csv1.pop(2)
-        # csv2=[csv1[0][1:],csv1[1].replace('value,','')]
-        # CSV='\n'.join(csv2)
-        # st.write(CSV)
-        # the CSV output is then exported and then downloaded through streamlit's download button widget 
-        # st.download_button(
-                             #label="Download selection as CSV",
-                             #data=CSV,
-                             #file_name='output.csv',
-                             #mime='text/csv',
-                             #)
+         df = pd.read_json(json) 
+         csv = df.to_csv() #the json is converted into csv
+         csv1 = csv.split('\n') #the CSV is converted to an array to remove the unecessary rows and columns
+         removing unecessary rows and columns 
+         csv1.pop(1)
+         csv1.pop(2)
+         csv2=[csv1[0][1:],csv1[1].replace('value,','')]
+         CSV = csv2[1]
+         return CSV
          
 
 
@@ -33,7 +26,7 @@ B = ["ASTON MARTIN", "DODGE", "LAMBORGHINI", "NISSAN", "MINI", "BUICK", "MASERAT
 C = ["AUDI", "FERRARI", "MAZDA", "PAGANI AUTOMOBILI S.P.A.", "SCION", "FORD", "ROUSH", "INFINITI", "TOYOTA", "GMC"]
 D = ["BMW", "HONDA", "MCLAREN", "PORSCHE", "SUBARU", "HYUNDAI", "VOLKSWAGEN", "KIA", "VOLVO", "RAM"]
 
-
+S,G,O,T = 0
 
 
 
@@ -64,4 +57,7 @@ with pages:
                    horizontal=True,
                    id=str(pages.current)
                    )
-    
+         
+        
+                     
+       
