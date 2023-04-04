@@ -10,7 +10,7 @@ def download(json):
          df = pd.read_json(json) 
          csv = df.to_csv() #the json is converted into csv
          csv1 = csv.split('\n') #the CSV is converted to an array to remove the unecessary rows and columns
-         removing unecessary rows and columns 
+         #removing unecessary rows and columns 
          csv1.pop(1)
          csv1.pop(2)
          csv2=[csv1[0][1:],csv1[1].replace('value,','')]
