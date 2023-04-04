@@ -32,7 +32,7 @@ O = 0
 T = 0
 
 
-def calculate_and_plot_user_preference(input):
+def calculate_and_plot_user_preference(input,x,y,z,w):
    if input[0] in B:
        S += 1
    elif input[0] in D:
