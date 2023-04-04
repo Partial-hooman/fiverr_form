@@ -33,40 +33,40 @@ T = 0
 
 
 def calculate_and_plot_user_preference(input):
-    if input[0] in B:
+   if input[0] in B:
        S += 1
-    elif input[0] in D:
+   elif input[0] in D:
        G += 1
-    elif input[0] in A:
+   elif input[0] in A:
        O += 1
-    elif input[0] in C:
+   elif input[0] in C:
        T += 1
      
-    if input[1] in A:
+   if input[1] in A:
        S += 1
-    elif input[1] in C:
+   elif input[1] in C:
        G += 1
-    elif input[1] in D:
+   elif input[1] in D:
        O += 1
-    elif input[1] in B:
+   elif input[1] in B:
        T += 1
     
-    if input[2] in C:
+   if input[2] in C:
        S += 1
-    elif input[2] in B:
+   elif input[2] in B:
        G += 1
-    elif input[2] in A:
+   elif input[2] in A:
        O += 1
-    elif input[2] in D:
+   elif input[2] in D:
        T += 1
 
-    if input[3] in A:
+   if input[3] in A:
        S += 1
-    elif input[3] in D:
+   elif input[3] in D:
        G += 1
-    elif input[3] in C:
+   elif input[3] in C:
        O += 1 
-    elif input[3] in B:
+   elif input[3] in B:
        T += 1
     
    if input[4] in D:
