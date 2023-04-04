@@ -42,11 +42,11 @@ pages = survey.pages(len(f_i), on_submit=lambda: download(survey.to_json())) # t
 # generating the survey radios
 
 with pages:
-         survey.radio(
-            options=f_i[pages.current].split(','),
-            index=0,
-            label_visibility="collapsed",
-            horizontal=True,
-            id=str(pages.current)
-        )
+         radio = survey.radio(
+                   options=f_i[pages.current].split(','),
+                   index=0,
+                   label_visibility="collapsed",
+                   horizontal=True,
+                   id=str(pages.current)
+                   )
     
