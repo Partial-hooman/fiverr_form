@@ -130,7 +130,7 @@ def calculate_and_plot_user_preference(input,S,G,O,T):
    st.write("User preference is " + user_pref)
    P_df = pd.DataFrame(dict(r=[S,G,O,T],theta=["S","G","O","T"]))
    fig = px.line_polar(P_df, r='r', theta='theta', line_close=True)
-   st.write(fig)
+   st.plotly_chart(fig)
    st.write(S,G,O,T)
 
 
