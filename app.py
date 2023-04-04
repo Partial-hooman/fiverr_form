@@ -5,7 +5,7 @@ import streamlit as st
 import streamlit_survey as ss
 import pandas as pd
 
-#the download function to download the csv output, which first takes output as a json file
+#converts user input into array for further calculations
 
 def input_selection(json):
          df = pd.read_json(json) 
@@ -32,8 +32,10 @@ G = 0
 O = 0
 T = 0
 
+# function to calculate user pref and plot graph, takes user selection as input 
 
 def calculate_and_plot_user_preference(input,S,G,O,T):
+   # count calculation 
    if input[0] in B:
        S += 1
    elif input[0] in D:
@@ -124,10 +126,12 @@ def calculate_and_plot_user_preference(input,S,G,O,T):
    elif input[9] in A:
        T += 1
    
+
    prefs = {"S":S,"G":G,"O":O,"T":T}
    pref = [S,G,O,T]
    user_pref = list(filter(lambda x: prefs[x] == max(pref), prefs))[0]
    st.write("User preference is " + user_pref)
+   #plotting the graph 
    P_df = pd.DataFrame(dict(r=[S,G,O,T],theta=["S","G","O","T"]))
    fig = px.line_polar(P_df, r='r', theta='theta', line_close=True)
    st.plotly_chart(fig)
