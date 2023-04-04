@@ -1,5 +1,6 @@
 #import the required libraries 
 
+import plotly.express as px
 import streamlit as st
 import streamlit_survey as ss
 import pandas as pd
