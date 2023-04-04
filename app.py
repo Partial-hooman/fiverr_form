@@ -15,7 +15,7 @@ def input_selection(json):
          csv1.pop(2)
          csv2=[csv1[0][1:],csv1[1].replace('value,','')]
          CSV = csv2[1]
-         return CSV
+         return type(CSV)
          
  
 
