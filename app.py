@@ -146,7 +146,7 @@ f_i = (f.read()).split('\n')
 
 
 survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
-pages = survey.pages(len(f_i), on_submit=lambda: st.write(input_selection(survey.to_json()))) # the survey is first converted to json after which it is given to the download function to download the CSV output
+pages = survey.pages(len(f_i), on_submit=lambda: calculate_and_plot_user_preference(input_selection(survey.to_json()))) # the survey is first converted to json after which it is given to the download function to download the CSV output
 
 # generating the survey radios
 
