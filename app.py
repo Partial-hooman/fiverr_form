@@ -17,7 +17,7 @@ def input_selection(json):
          CSV = csv2[1]
          return CSV
          
-
+ 
 
 
 
@@ -32,6 +32,103 @@ O = 0
 T = 0
 
 
+Def calculate_and_plot_user_preference(input):
+    if input[0] in B:
+       S += 1
+    elif input[0] in D:
+       G += 1
+    elif input[0] in A:
+       O += 1
+    elif input[0] in C:
+       T += 1
+     
+    if input[1] in A:
+       S += 1
+    elif input[1] in C:
+       G += 1
+    elif input[1] in D:
+       O += 1
+    elif input[1] in B:
+       T += 1
+    
+    if input[2] in C:
+       S += 1
+    elif input[2] in B:
+       G += 1
+    elif input[2] in A:
+       O += 1
+    elif input[2] in D:
+       T += 1
+
+    if input[3] in A:
+       S += 1
+    elif input[3] in D:
+       G += 1
+    elif input[3] in C:
+       O += 1 
+    elif input[3] in B:
+       T += 1
+    
+   if input[4] in D:
+       S += 1
+   elif input[4] in B:
+       G += 1 
+   elif input[4] in C:
+       O += 1
+   elif input[4] in A:
+       T += 1
+
+   if input[5] in B:
+       S += 1
+   elif input[5] in A:
+       G += 1 
+   elif input[5] in D:
+       O += 1
+   elif input[5] in C:
+       T += 1
+
+   if input[6] in C:
+       S += 1
+   elif input[6] in D:
+       G += 1 
+   elif input[6] in B:
+       O += 1
+   elif input[6] in A:
+       T += 1
+   
+   if input[7] in B:
+       S += 1
+   elif input[7] in A:
+       G += 1 
+   elif input[7] in D:
+       O += 1
+   elif input[7] in C:
+       T += 1
+
+   if input[8] in D:
+       S += 1
+   elif input[8] in A:
+       G += 1 
+   elif input[8] in C:
+       O += 1
+   elif input[8] in B:
+       T += 1
+ 
+   if input[9] in C:
+       S += 1
+   elif input[9] in B:
+       G += 1 
+   elif input[9] in D:
+       O += 1
+   elif input[9] in A:
+       T += 1
+   
+   prefs = {"S":S,"G":G,"O":O,"T":T}
+   pref = [S,G,O,T]
+   user_pref = list(filter(lambda x: prefs[x] == max(pref), prefs))[0]
+   st.write("User preference is " + user_pref)
+   
+   
 
 
 
