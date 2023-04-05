@@ -22,120 +22,76 @@ def input_selection(json):
 
 
 
-A = ["ALFA ROMEO", "CHEVROLET", "JAGUAR", "MERCEDES-BENZ", "FIAT", "BENTLEY", "LEXUS", "ACURA", "MITSUBISHI", "CHRYSLER"] 
-B = ["ASTON MARTIN", "DODGE", "LAMBORGHINI", "NISSAN", "MINI", "BUICK", "MASERATI", "CADILLAC", "ROLLS-ROYCE", "LINCOLN"] 
-C = ["AUDI", "FERRARI", "MAZDA", "PAGANI AUTOMOBILI S.P.A.", "SCION", "FORD", "ROUSH", "INFINITI", "TOYOTA", "GMC"]
-D = ["BMW", "HONDA", "MCLAREN", "PORSCHE", "SUBARU", "HYUNDAI", "VOLKSWAGEN", "KIA", "VOLVO", "RAM"]
+input = pd.read_csv("input.csv")
+A = input['A'].tolist()
+B = input['B'].tolist()
+C = input['C'].tolist()
+D = input['D'].tolist()
 
-S = 0
-G = 0
-O = 0
-T = 0
+lookup = pd.read_csv("lookup.csv")
+S = lookup['S'].tolist()
+G = lookup['G'].tolist()
+O = lookup['O'].tolist()
+T = lookup['T'].tolist()
+
+
+
+S_count = 0
+G_count = 0
+O_count = 0
+T_count = 0
 
 # function to calculate user pref and plot graph, takes user selection as input 
 
-def calculate_and_plot_user_preference(input,S,G,O,T):
+def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D):
    # count calculation 
-   if input[0] in B:
-       S += 1
-   elif input[0] in D:
-       G += 1
-   elif input[0] in A:
-       O += 1
-   elif input[0] in C:
-       T += 1
-     
-   if input[1] in A:
-       S += 1
-   elif input[1] in C:
-       G += 1
-   elif input[1] in D:
-       O += 1
-   elif input[1] in B:
-       T += 1
-    
-   if input[2] in C:
-       S += 1
-   elif input[2] in B:
-       G += 1
-   elif input[2] in A:
-       O += 1
-   elif input[2] in D:
-       T += 1
-
-   if input[3] in A:
-       S += 1
-   elif input[3] in D:
-       G += 1
-   elif input[3] in C:
-       O += 1 
-   elif input[3] in B:
-       T += 1
-    
-   if input[4] in D:
-       S += 1
-   elif input[4] in B:
-       G += 1 
-   elif input[4] in C:
-       O += 1
-   elif input[4] in A:
-       T += 1
-
-   if input[5] in B:
-       S += 1
-   elif input[5] in A:
-       G += 1 
-   elif input[5] in D:
-       O += 1
-   elif input[5] in C:
-       T += 1
-
-   if input[6] in C:
-       S += 1
-   elif input[6] in D:
-       G += 1 
-   elif input[6] in B:
-       O += 1
-   elif input[6] in A:
-       T += 1
+   inp = []
+   for x in input:
+         if x in A:
+            inp.append("A")
+         elif x in B:
+            inp.append("B")
+         elif x in C:
+            inp.append("C")
+         elif x in D:
+            inp.append("D")
+                       
    
-   if input[7] in B:
-       S += 1
-   elif input[7] in A:
-       G += 1 
-   elif input[7] in D:
-       O += 1
-   elif input[7] in C:
-       T += 1
+   for i in range(len(inp)):
+         if inp[i] == S[i]:
+            S_count += 1
+         elif inp[i] == G[i]:
+            G_count += 1
+         elif inp[i] == O[i]:
+            O_count += 1
+         elif inp[i] == T[i]:
+            T_count += 1
+         
 
-   if input[8] in D:
-       S += 1
-   elif input[8] in A:
-       G += 1 
-   elif input[8] in C:
-       O += 1
-   elif input[8] in B:
-       T += 1
- 
-   if input[9] in C:
-       S += 1
-   elif input[9] in B:
-       G += 1 
-   elif input[9] in D:
-       O += 1
-   elif input[9] in A:
-       T += 1
-   
-
-   prefs = {"S":S,"G":G,"O":O,"T":T}
-   pref = [S,G,O,T]
+   prefs = {"S":S_count,"G":G_count,"O":O_count,"T":T_count}
+   pref = [S_count,G_count,O_count,T_count]
    user_pref = list(filter(lambda x: prefs[x] == max(pref), prefs))[0]
-   st.write("User preference is " + user_pref)
+   st.write('USER RESPONSE: ' + "[" + ','.join(input) + ']')
+   st.header("User preference is " + user_pref)
    #plotting the graph 
-   P_df = pd.DataFrame(dict(r=[S,G,O,T],theta=["S","G","O","T"]))
+   P_df = pd.DataFrame(dict(r=[S_count,G_count,O_count,T_count],theta=["S","G","O","T"]))
    fig = px.line_polar(P_df, r='r', theta='theta', line_close=True)
    st.plotly_chart(fig)
-   st.write(S,G,O,T)
+   count_values = "S:"+str(S_count)+ " " + "G:"+str(G_count)+ " " + "O:"+str(O_count) + " " + "T:"+str(T_count)
+   st.markdown("""
+                    <style>
+                           .big-font {
+                                font-size:69px !important;
+                                    }
+                     </style>
+                      """, unsafe_allow_html=True)
+
+   
+   
+   fig2 = px.pie(values=pref, names=["S","G","O","T"], hole=.5)
+   st.plotly_chart(fig2)
+   st.markdown(f'<p class="big-font">{count_values}</p>', unsafe_allow_html=True)
+   
 
 
     
@@ -151,7 +107,7 @@ f_i = (f.read()).split('\n')
 
 
 survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
-pages = survey.pages(len(f_i), on_submit=lambda: calculate_and_plot_user_preference(input_selection(survey.to_json()),S,G,O,T)) # the survey is first converted to json after which it is given to the download function to download the CSV output
+pages = survey.pages(len(f_i), on_submit=lambda: calculate_and_plot_user_preference(input_selection(survey.to_json()),S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
 
 # generating the survey radios
 
