@@ -71,7 +71,7 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    prefs = {"S":S_count,"G":G_count,"O":O_count,"T":T_count}
    pref = [S_count,G_count,O_count,T_count]
    user_pref = list(filter(lambda x: prefs[x] == max(pref), prefs))[0]
-   st.write('USER RESPONSE: ' + "[" + ','.join(input) + ']')
+   st.subheader('USER RESPONSE: ' + "[" + ','.join(input) + ']')
    st.header("User preference is " + user_pref)
    #plotting the graph 
    P_df = pd.DataFrame(dict(r=[S_count,G_count,O_count,T_count],theta=["S","G","O","T"]))
