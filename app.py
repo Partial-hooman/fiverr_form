@@ -22,13 +22,13 @@ def input_selection(json):
 
 
 
-input = pd.read_csv("input.csv")
+input = pd.read_csv("input.csv",sep=r'\s*,\s*')
 A = input['A'].tolist()
 B = input['B'].tolist()
 C = input['C'].tolist()
 D = input['D'].tolist()
 
-lookup = pd.read_csv("lookup.csv")
+lookup = pd.read_csv("lookup.csv",sep=r'\s*,\s*')
 S = lookup['S'].tolist()
 G = lookup['G'].tolist()
 O = lookup['O'].tolist()
