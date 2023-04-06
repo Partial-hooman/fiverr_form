@@ -3,3 +3,4 @@ streamlit-survey
 pandas
 plotly 
 kaleido
+fpdf
