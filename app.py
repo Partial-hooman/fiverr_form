@@ -80,13 +80,14 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    buffer = io.BytesIO()
 
    # Save the figure as a pdf to the buffer
-   fig.write_image(file=buffer, format="png")
+   fig.write_image(file=buffer, format="pdf")
+   
    # Download the pdf from the buffer
    st.download_button(
             label="Download PDF",
             data=buffer,
-            file_name="figure.png",
-            mime="image/png",
+            file_name="figure.pdf",
+            mime="application/pdf",
             )
     
 
