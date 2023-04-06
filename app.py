@@ -109,7 +109,7 @@ if Input is not None:
       B = input['B'].tolist()
       C = input['C'].tolist()
       D = input['D'].tolist()
-      lookup = pd.read_csv(Lookup,sep=r'\s*,\s*')
+      lookup = pd.read_csv(Lookup,sep=r'\s*,\s*', engine='python')
       S = lookup['S'].tolist()
       G = lookup['G'].tolist()
       O = lookup['O'].tolist()
