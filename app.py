@@ -81,7 +81,6 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
 
    # Save the figure as a pdf to the buffer
    fig.write_image(file=buffer, format="pdf")
-   fig2.write_image(file=buffer, format="pdf")
    # Download the pdf from the buffer
    st.download_button(
             label="Download PDF",
