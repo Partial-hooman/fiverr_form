@@ -2,3 +2,4 @@ streamlit
 streamlit-survey
 pandas
 plotly 
+matplotlib
