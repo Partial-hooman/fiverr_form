@@ -1,4 +1,5 @@
 #import the required libraries 
+import base64
 import tempfile 
 from fpdf import FPDF
 import plotly.express as px
@@ -19,6 +20,9 @@ def input_selection(json):
          return CSV
          
  
+def create_download_link(val, filename):
+    b64 = base64.b64encode(val)  # val looks like b'...'
+    return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="{filename}.pdf">Download file</a>'
 
 
 
@@ -90,12 +94,8 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    pdf.image(str(temp.name))
    pdf.image(str(temp2.name))
    # Download the pdf from the buffer
-   st.download_button(
-            label="Download PDF",
-            data=pdf,
-            file_name="figure.pdf",
-            mime="application/pdf",
-            )
+   html = create_download_link(pdf.output(dest="S").encode("latin-1"), "test")
+   st.markdown(html, unsafe_allow_html=True)
     
 
 Input = st.file_uploader("upload the input csv", type='csv')
