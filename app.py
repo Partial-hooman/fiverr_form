@@ -78,7 +78,7 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    st.plotly_chart(fig)
    fig2 = px.pie(values=pref, names=["S","G","O","T"], hole=.5)
    st.plotly_chart(fig2)
-   pdfFile = PdfPages(“Graphs.pdf”)
+   pdfFile = PdfPages("Graphs.pdf")
    pdfFile.savefig(fig)
    pdfFile.savefig(fig2)
    pdfFile.close()
