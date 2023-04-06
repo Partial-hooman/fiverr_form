@@ -135,7 +135,7 @@ if Input is not None:
 
       with pages:
                st.subheader("question " + str(pages.current+1))
-               radio = survey.radio("label",
+               radio = survey.radio(label="label",
                          options=f_i[pages.current].split(','),
                          index=0,
                          label_visibility="collapsed",
