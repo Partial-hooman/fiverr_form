@@ -80,8 +80,8 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    st.plotly_chart(fig2)
    buffer = io.BytesIO()
    buffer2 = io.BytesIO()
-   temp = tempfile.TemporaryFile()
-   temp2 = tempfile.TemporaryFile()
+   temp = tempfile.NamedTemporaryFile(suffix='.png')
+   temp2 = tempfile.NamedTemporaryFile(suffix='.png')
    # Save the figure as a pdf to the buffer
    fig.write_image(file=temp, format="png")
    fig2.write_image(file=temp2, format="png")
