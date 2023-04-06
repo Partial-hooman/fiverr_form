@@ -94,8 +94,8 @@ Input = st.file_uploader("upload the input csv", type='csv')
 Lookup = st.file_uploader("upload the lookup CSV", type='csv')
 
 
-if Input is not none:
-   if Lookup is not none:
+if Input is not None:
+   if Lookup is not None:
       input = pd.read_csv(Input,sep=r'\s*,\s*')
       A = input['A'].tolist()
       B = input['B'].tolist()
