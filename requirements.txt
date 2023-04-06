@@ -2,4 +2,4 @@ streamlit
 streamlit-survey
 pandas
 plotly 
-matplotlib
+kaleido
