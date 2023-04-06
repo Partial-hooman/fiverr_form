@@ -1,5 +1,6 @@
 #import the required libraries 
-
+import tempfile 
+from fpdf import FPDF
 import plotly.express as px
 import streamlit as st
 import streamlit_survey as ss
@@ -79,13 +80,19 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    st.plotly_chart(fig2)
    buffer = io.BytesIO()
    buffer2 = io.BytesIO()
+   temp = tempfile.TemporaryFile()
+   temp2 = tempfile.TemporaryFile()
    # Save the figure as a pdf to the buffer
-   fig.write_image(file=buffer, format="png")
-   fig2.write_image(file=buffer2, format="png")
+   fig.write_image(file=temp, format="png")
+   fig2.write_image(file=temp2, format="png")
+   pdf = FPDF()
+   pdf.add_page()
+   pdf.add_image(temp.name)
+   pdf.add_image(temp2.name)
    # Download the pdf from the buffer
    st.download_button(
             label="Download PDF",
-            data=buffer,
+            data=pdf,
             file_name="figure.pdf",
             mime="application/pdf",
             )
