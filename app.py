@@ -107,7 +107,7 @@ if Input is not none:
       O = lookup['O'].tolist()
       T = lookup['T'].tolist()
       st.header("uploaded data frames")
-      st.write("Main Data:"
+      st.write("Main Data:")
       st.dataframe(input)
       st.write("lookup table:")
       st.dataframe(lookup)
