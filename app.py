@@ -4,7 +4,7 @@ import plotly.express as px
 import streamlit as st
 import streamlit_survey as ss
 import pandas as pd
-
+from matplotlib.backends.backend_pdf import PdfPages
 #converts user input into array for further calculations
 
 def input_selection(json):
@@ -78,10 +78,16 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    st.plotly_chart(fig)
    fig2 = px.pie(values=pref, names=["S","G","O","T"], hole=.5)
    st.plotly_chart(fig2)
-   
-   
-
-
+   pdfFile = PdfPages(“Graphs.pdf”)
+   pdfFile.savefig(fig)
+   pdfFile.savefig(fig2)
+   pdfFile.close()
+   st.download_button(
+                   label="Export",
+                   data=pdfFile,
+                   file_name="Graphs.pdf",
+                   mime="application/pdf",
+                   )
     
 
 Input = st.file_uploader("upload the input csv", type='csv')
