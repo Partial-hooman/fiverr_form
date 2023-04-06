@@ -78,10 +78,10 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    fig2 = px.pie(values=pref, names=["S","G","O","T"], hole=.5,color_discrete_sequence=["#0068c9","#83c9ff","#ff2b2b","#ffabab","#29b09d","#7defa1","#ff8700","#ffd16a","#6d3fc0","#d5dae5"])
    st.plotly_chart(fig2)
    buffer = io.BytesIO()
-
+   buffer2 = io.BytesIO()
    # Save the figure as a pdf to the buffer
-   fig.write_image(file=buffer, format="pdf")
-   
+   fig.write_image(file=buffer, format="png")
+   fig2.write_image(file=buffer2, format="png")
    # Download the pdf from the buffer
    st.download_button(
             label="Download PDF",
