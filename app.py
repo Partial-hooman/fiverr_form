@@ -94,7 +94,7 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    pdf.image(str(temp.name))
    pdf.image(str(temp2.name))
    # Download the pdf from the buffer
-   html = create_download_link(pdf.output(dest="S").encode("latin-1"), "test")
+   html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
    st.markdown(html, unsafe_allow_html=True)
     
 
