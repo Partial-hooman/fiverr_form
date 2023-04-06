@@ -79,8 +79,8 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    fig2 = px.pie(values=pref, names=["S","G","O","T"], hole=.5)
    st.plotly_chart(fig2)
    pdfFile = PdfPages("Graphs.pdf")
-   pdfFile.savefig(fig)
-   pdfFile.savefig(fig2)
+   pdfFile.savefig(fig.get_figure())
+   pdfFile.savefig(fig2.get_figure())
    pdfFile.close()
    st.download_button(
                    label="Export",
