@@ -73,9 +73,9 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    st.write(prefs)
    #plotting the graph 
    P_df = pd.DataFrame(dict(r=[S_count,G_count,O_count,T_count],theta=["S","G","O","T"]))
-   fig = px.line_polar(P_df, r='r', theta='theta', line_close=True,color_discrete_sequence=[“#0068c9”,“#83c9ff”,“#ff2b2b”,“#ffabab”,“#29b09d”,“#7defa1”,“#ff8700”,“#ffd16a”,“#6d3fc0”,“#d5dae5”])
+   fig = px.line_polar(P_df, r='r', theta='theta', line_close=True,color_discrete_sequence=["#0068c9","#83c9ff","#ff2b2b","#ffabab","#29b09d","#7defa1","#ff8700","#ffd16a","#6d3fc0","#d5dae5"])
    st.plotly_chart(fig)
-   fig2 = px.pie(values=pref, names=["S","G","O","T"], hole=.5,color_discrete_sequence=[“#0068c9”,“#83c9ff”,“#ff2b2b”,“#ffabab”,“#29b09d”,“#7defa1”,“#ff8700”,“#ffd16a”,“#6d3fc0”,“#d5dae5”])
+   fig2 = px.pie(values=pref, names=["S","G","O","T"], hole=.5,color_discrete_sequence=["#0068c9","#83c9ff","#ff2b2b","#ffabab","#29b09d","#7defa1","#ff8700","#ffd16a","#6d3fc0","#d5dae5"])
    st.plotly_chart(fig2)
    buffer = io.BytesIO()
 
