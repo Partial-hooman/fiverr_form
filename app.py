@@ -104,7 +104,7 @@ Lookup = st.file_uploader("upload the lookup CSV", type='csv')
 
 if Input is not None:
    if Lookup is not None:
-      input = pd.read_csv(Input,sep=r'\s*,\s*')
+      input = pd.read_csv(Input,sep=r'\s*,\s*',engine='python')
       A = input['A'].tolist()
       B = input['B'].tolist()
       C = input['C'].tolist()
@@ -135,7 +135,7 @@ if Input is not None:
 
       with pages:
                st.subheader("question " + str(pages.current+1))
-               radio = survey.radio(
+               radio = survey.radio("label",
                          options=f_i[pages.current].split(','),
                          index=0,
                          label_visibility="collapsed",
