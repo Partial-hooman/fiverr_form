@@ -6,3 +6,4 @@ kaleido
 fpdf
 df2img
 ipython
+nbformat>=4.2.0
