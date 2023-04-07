@@ -112,7 +112,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
          line_color="darkslategray",
               ),
          row_fill_color=("#ffffff", "#d7d8d6"),
-         fig_size=(540, 960)
+         fig_size=(540, 1024)
         )
    Df_fig2 = df2img.plot_dataframe(
          Lookup,
