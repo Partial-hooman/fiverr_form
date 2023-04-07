@@ -1,4 +1,5 @@
 #import the required libraries 
+import df2img
 import base64
 import tempfile 
 from fpdf import FPDF
@@ -7,7 +8,7 @@ import streamlit as st
 import streamlit_survey as ss
 import pandas as pd
 #converts user input into array for further calculations
-import io
+#import io
 def input_selection(json):
          df = pd.read_json(json) 
          csv = df.to_csv() #the json is converted into csv
@@ -84,8 +85,8 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    st.plotly_chart(fig)
    fig2 = px.pie(values=pref, names=["S","G","O","T"], hole=.5,color_discrete_sequence=["#0068c9","#83c9ff","#ff2b2b","#ffabab","#29b09d","#7defa1","#ff8700","#ffd16a","#6d3fc0","#d5dae5"])
    st.plotly_chart(fig2)
-   buffer = io.BytesIO()
-   buffer2 = io.BytesIO()
+   #buffer = io.BytesIO()
+   #buffer2 = io.BytesIO()
    temp = tempfile.NamedTemporaryFile(suffix='.png')
    temp2 = tempfile.NamedTemporaryFile(suffix='.png')
    # Save the figure as a pdf to the buffer
