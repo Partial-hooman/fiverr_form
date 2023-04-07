@@ -93,10 +93,10 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    pdf.add_page()
    pdf.set_font('Arial', 'B', 16)
    pdf.image(str(temp.name),x=-25)
-   pdf.cell(40, 10, 'User preference (radar chart)', w=25)
+   pdf.cell(50, 10, 'User preference (radar chart)')
    pdf.add_page()
    pdf.image(str(temp2.name),x=-50)
-   pdf.cell(40, 10, 'User preference (pie chart)', w=25)
+   pdf.cell(50, 10, 'User preference (pie chart)')
    # Download the pdf from the buffer
    html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
    st.markdown(html, unsafe_allow_html=True)
