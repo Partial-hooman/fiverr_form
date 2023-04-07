@@ -91,7 +91,7 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    fig2.write_image(file=temp2, format="png")
    pdf = FPDF()
    pdf.add_page()
-   #pdf.set_font('Arial', 'B', 16)
+   pdf.set_font('Arial', 'B', 16)
    pdf.image(str(temp.name))
    pdf.cell(40, 10, 'Hello World!', 1)
    pdf.image(str(temp2.name))
