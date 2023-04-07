@@ -5,3 +5,4 @@ plotly
 kaleido
 fpdf
 df2img
+ipython
