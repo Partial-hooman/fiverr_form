@@ -144,7 +144,6 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    pdf.add_page()
    pdf.image(str(df_temp.name))
    pdf.image(str(df_temp2.name))
-   pdf.add_page()
    pdf.set_font('Arial', 'B', 16)
    pdf.image(str(temp.name),x=-25)
    pdf.cell(40, 10, 'User preference (radar chart)',align = 'L')
