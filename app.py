@@ -99,21 +99,21 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
                 font_family="Times New Roman",
                 font_size=16,
                 text="Input data:",
-                ))#,
-                #tbl_header=dict(
-                     #align="right",
-                    # fill_color="blue",
-                     #font_color="white",
-                    # font_size=10,
-                     #line_color="darkslategray",
-                #),
-                #tbl_cells=dict(
-                               #align="right",
+                )),
+                tbl_header=dict(
+                     align="right",
+                    fill_color="blue",
+                     font_color="white",
+                     font_size=10,
+                     line_color="darkslategray",
+                ),
+                tbl_cells=dict(
+                               align="right",
                                #line_color="darkslategray",
                               #),
-               # row_fill_color=("#ffffff", "#d7d8d6"),
-                #fig_size=(300, 160)
-               # )
+                row_fill_color=("#ffffff", "#d7d8d6")
+                
+               )
    Df_fig2 = df2img.plot_dataframe(
             Lookup,
             title=dict(
@@ -121,21 +121,21 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
                 font_family="Times New Roman",
                 font_size=16,
                 text="Lookup data:",
-                ))#,
-                #tbl_header=dict(
-                    # align="right",
-                    # fill_color="blue",
-                   #  font_color="white",
-                    # font_size=10,
-                    # line_color="darkslategray",
-               # ),
-                #tbl_cells=dict(
-                 #              align="right",
-                 #              line_color="darkslategray",
-                #              ),
-                #row_fill_color=("#ffffff", "#d7d8d6"),
-                #fig_size=(300, 160)
-                #)
+                )),
+                tbl_header=dict(
+                    align="right",
+                    fill_color="blue",
+                    font_color="white",
+                    font_size=10,
+                    line_color="darkslategray",
+                ),
+                tbl_cells=dict(
+                              align="right",
+                              line_color="darkslategray",
+                              ),
+                row_fill_color=("#ffffff", "#d7d8d6"),
+                fig_size=(300, 160)
+                )
    df_temp = tempfile.NamedTemporaryFile(suffix='.png')
    df_temp2 = tempfile.NamedTemporaryFile(suffix='.png')
    df2img.save_dataframe(fig=Df_fig, filename=df_temp.name)
