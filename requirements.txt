@@ -4,3 +4,4 @@ pandas
 plotly 
 kaleido
 fpdf
+df2img
