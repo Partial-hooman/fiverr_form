@@ -147,7 +147,6 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    pdf.set_font('Arial', 'B', 16)
    pdf.image(str(temp.name),x=-25)
    pdf.cell(40, 10, 'User preference (radar chart)',align = 'L')
-   pdf.add_page()
    pdf.image(str(temp2.name),x=-50)
    pdf.cell(40, 10, 'User preference (pie chart)',align = 'L')
    # Download the pdf from the buffer
