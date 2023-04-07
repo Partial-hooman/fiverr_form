@@ -112,7 +112,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
          line_color="darkslategray",
               ),
          row_fill_color=("#ffffff", "#d7d8d6"),
-         fig_size=(540, 1024)
+         fig_size=(540, 1200)
         )
    Df_fig2 = df2img.plot_dataframe(
          Lookup,
@@ -141,7 +141,6 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    df2img.save_dataframe(fig=Df_fig, filename=df_temp.name)
    df2img.save_dataframe(fig=Df_fig2, filename=df_temp2.name)
    pdf = FPDF()
-   pdf.add_page()
    pdf.image(str(df_temp.name))
    pdf.add_page()
    pdf.image(str(df_temp2.name))
