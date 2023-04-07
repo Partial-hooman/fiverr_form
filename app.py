@@ -148,9 +148,10 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    pdf.add_page()
    pdf.image(str(temp2.name),x=-50)
    pdf.cell(40, 10, 'User preference (pie chart)',align = 'L')
+   pdf.add_page()
+   pdf.cell(40, 10, 'Uploaded Data frames:',align = 'C')
    pdf.image(str(df_temp.name))
    pdf.image(str(df_temp2.name))
-   pdf.add_page()
    # Download the pdf from the buffer
    html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
    st.markdown(html, unsafe_allow_html=True)
