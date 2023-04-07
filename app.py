@@ -115,7 +115,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
                 fig_size=(300, 160)
                 )
    Df_fig2 = df2img.plot_dataframe(
-            Input,
+            Lookup,
             title=dict(
                 font_color="darkred",
                 font_family="Times New Roman",
@@ -188,7 +188,7 @@ if Input is not None:
 
       #generating the survey
       survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
-      pages = survey.pages(len(f_i), on_submit=lambda: calculate_and_plot_user_preference(input_selection(survey.to_json()),S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
+      pages = survey.pages(len(f_i), on_submit=lambda: calculate_and_plot_user_preference(input,lookup,input_selection(survey.to_json()),S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
 
       # generating the survey radios
 
