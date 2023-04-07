@@ -134,7 +134,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
          line_color="darkslategray",
               ),
          row_fill_color=("#ffffff", "#d7d8d6"),
-         fig_size=(160, 690)
+         fig_size=(560, 1440)
         )
    df_temp = tempfile.NamedTemporaryFile(suffix='.png')
    df_temp2 = tempfile.NamedTemporaryFile(suffix='.png')
