@@ -92,9 +92,9 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    pdf = FPDF()
    pdf.add_page()
    pdf.set_font('Arial', 'B', 16)
-   pdf.image(str(temp.name))
+   pdf.image(str(temp.name),x=-50)
    pdf.cell(40, 10, 'Hello World!', 1)
-   pdf.image(str(temp2.name))
+   pdf.image(str(temp2.name),x=-50)
    # Download the pdf from the buffer
    html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
    st.markdown(html, unsafe_allow_html=True)
