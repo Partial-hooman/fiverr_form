@@ -62,11 +62,11 @@ def calculate_and_plot_user_preference(input,S_count,G_count,O_count,T_count,S,G
    for i in range(len(inp)):
          if inp[i] == S[i]:
             S_count += 1
-         elif inp[i] == G[i]:
+         if inp[i] == G[i]:
             G_count += 1
-         elif inp[i] == O[i]:
+         if inp[i] == O[i]:
             O_count += 1
-         elif inp[i] == T[i]:
+         if inp[i] == T[i]:
             T_count += 1
          
 
