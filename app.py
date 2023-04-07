@@ -148,6 +148,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    pdf.add_page()
    pdf.image(str(temp2.name),x=-50)
    pdf.cell(40, 10, 'User preference (pie chart)',align = 'L')
+   pdf.add_page()
    pdf.image(str(df_temp.name),x=-100)
    pdf.image(str(df_temp2.name),x=-100)
    # Download the pdf from the buffer
