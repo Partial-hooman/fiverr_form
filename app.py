@@ -52,11 +52,11 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    for x in input:
          if x in A:
             inp.append("A")
-         elif x in B:
+         if x in B:
             inp.append("B")
-         elif x in C:
+         if x in C:
             inp.append("C")
-         elif x in D:
+         if x in D:
             inp.append("D")
                        
   
