@@ -64,6 +64,8 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    inp2 = {"A":A,"B":B,"C":C,"D":D}
    st.write('['+",".join(inp)+']')
    for i in range(len(input)):
+         if i == 8:
+            st.write(input[i]
          if input[i] in inp2.get(S[i]):
             S_count += 1
             st.write("S",S[i])
@@ -77,8 +79,6 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
             T_count += 1
             st.write("T",T[i])
          
-         if i == 8:
-            st.write(input[i]
 
    prefs = {"S":S_count,"G":G_count,"O":O_count,"T":T_count}
    pref = [S_count,G_count,O_count,T_count]
