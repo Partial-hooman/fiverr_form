@@ -67,13 +67,13 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
          if input[i] in inp2.get(S[i]):
             S_count += 1
             st.write("S")
-         if input[i] in inp2.get(G[i]):
+         elif input[i] in inp2.get(G[i]):
             G_count += 1
             st.write("G")
-         if input[i] in inp2.get(O[i]):
+         elif input[i] in inp2.get(O[i]):
             O_count += 1
             st.write("O")
-         if input[i] in inp2.get(T[i]):
+         elif input[i] in inp2.get(T[i]):
             T_count += 1
             st.write("T")
          
