@@ -77,6 +77,8 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
             T_count += 1
             st.write("T",T[i])
          
+         if i == 8:
+            st.write(input[i]
 
    prefs = {"S":S_count,"G":G_count,"O":O_count,"T":T_count}
    pref = [S_count,G_count,O_count,T_count]
