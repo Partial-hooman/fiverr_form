@@ -171,6 +171,7 @@ if Input is not None:
       G = lookup['G'].tolist()
       O = lookup['O'].tolist()
       T = lookup['T'].tolist()
+      st.write(A,B,C,D,S,G,O,T)
       st.header("uploaded data frames")
       st.write("Main Data:")
       st.dataframe(input)
