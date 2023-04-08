@@ -59,7 +59,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
          elif x in D:
             inp.append("D")
                        
-   
+   st.write(inp)
    for i in range(len(inp)):
          if inp[i] == S[i]:
             S_count += 1
@@ -171,7 +171,6 @@ if Input is not None:
       G = lookup['G'].tolist()
       O = lookup['O'].tolist()
       T = lookup['T'].tolist()
-      st.write(A,B,C,D,S,G,O,T)
       st.header("uploaded data frames")
       st.write("Main Data:")
       st.dataframe(input)
