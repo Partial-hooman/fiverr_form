@@ -67,7 +67,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
          if i == 8:
             st.write(A)
             st.write(input[i])
-            if i in A:
+            if input[i] == A[i]:
                st.write(input[i],true)
             else:
                 st.write("not true")
