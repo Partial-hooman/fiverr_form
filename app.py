@@ -66,6 +66,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    for i in range(len(input)):
          if i == 8:
             st.write(A)
+            st.write(input[i])
             if i in A:
                st.write(input[i],true)
          if input[i] in inp2.get(S[i]):
