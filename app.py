@@ -69,6 +69,8 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
             st.write(input[i])
             if i in A:
                st.write(input[i],true)
+            else:
+                st.write("not true"
          if input[i] in inp2.get(S[i]):
             S_count += 1
             st.write("S",S[i])
