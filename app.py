@@ -61,7 +61,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
                        
   
 
-   inp2 = {"A":A,"B":B,"C":C,"D":D}
+   inp2 = {(list(Input.columns))[0]:A,(list(Input.columns))[1]:B,(list(Input.columns))[2]:C,(list(Input.columns))[3]:D}
    #st.write('['+",".join(inp)+']')
    for i in range(len(input)):
          if input[i].strip() in inp2.get(S[i]):
@@ -78,7 +78,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
             #st.write("T",T[i])
          
 
-   prefs = {"S":S_count,"G":G_count,"O":O_count,"T":T_count}
+   prefs = {(list(Lookup.columns))[0]:S_count,(list(Lookup.columns))[1]:G_count,(list(Lookup.columns))[2]:O_count,(list(Lookup.columns))[3]:T_count}
    pref = [S_count,G_count,O_count,T_count]
    #user_pref = list(filter(lambda x: prefs[x] == max(pref), prefs))[0]
    st.write('USER RESPONSE: ' + "[" + ','.join(input) + ']')
@@ -87,10 +87,10 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    st.header("User preference is " + user_pref)
    st.write(prefs)
    #plotting the graph 
-   P_df = pd.DataFrame(dict(r=[S_count,G_count,O_count,T_count],theta=["S","G","O","T"]))
+   P_df = pd.DataFrame(dict(r=[S_count,G_count,O_count,T_count],theta=[list(Lookup.columns)]))
    fig = px.line_polar(P_df, r='r', theta='theta', line_close=True,color_discrete_sequence=["#0068c9","#83c9ff","#ff2b2b","#ffabab","#29b09d","#7defa1","#ff8700","#ffd16a","#6d3fc0","#d5dae5"])
    st.plotly_chart(fig)
-   fig2 = px.pie(values=pref, names=["S","G","O","T"], hole=.5,color_discrete_sequence=["#0068c9","#83c9ff","#ff2b2b","#ffabab","#29b09d","#7defa1","#ff8700","#ffd16a","#6d3fc0","#d5dae5"])
+   fig2 = px.pie(values=pref, names=[list(Lookup.columns)], hole=.5,color_discrete_sequence=["#0068c9","#83c9ff","#ff2b2b","#ffabab","#29b09d","#7defa1","#ff8700","#ffd16a","#6d3fc0","#d5dae5"])
    st.plotly_chart(fig2)
    #buffer = io.BytesIO()
    #buffer2 = io.BytesIO()
