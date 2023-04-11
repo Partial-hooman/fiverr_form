@@ -80,11 +80,19 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
 
    prefs = {(list(Lookup.columns))[0]:S_count,(list(Lookup.columns))[1]:G_count,(list(Lookup.columns))[2]:O_count,(list(Lookup.columns))[3]:T_count}
    pref = [S_count,G_count,O_count,T_count]
-   #user_pref = list(filter(lambda x: prefs[x] == max(pref), prefs))[0]
+   pref2 = [*set(pref)]
+   pref2.sort(reverse = True)
    st.write('USER RESPONSE: ' + "[" + ','.join(input) + ']')
-   my_srs = pd.Series(prefs).astype(int)
-   user_pref = "".join((my_srs.index[my_srs == max(pref)].tolist()))
-   st.header("User preference is " + user_pref)
+   st.header("User preference is:")
+   for x in range(len(pref2)):
+       my_srs = pd.Series(prefs).astype(int)
+       user_pref = "".join((my_srs.index[my_srs == pref2[x]].tolist()))
+       st.subheader(str(x)+"."+user_pref)
+   #user_pref = list(filter(lambda x: prefs[x] == max(pref), prefs))[0]
+   #st.write('USER RESPONSE: ' + "[" + ','.join(input) + ']')
+   #my_srs = pd.Series(prefs).astype(int)
+   #user_pref = "".join((my_srs.index[my_srs == max(pref)].tolist()))
+   #st.header("User preference is " + user_pref)
    st.write(prefs)
    #plotting the graph 
    P_df = pd.DataFrame(dict(r=[S_count,G_count,O_count,T_count],theta=[list(Lookup.columns)]))
@@ -200,7 +208,7 @@ if Input is not None:
       with pages:
                st.subheader("question " + str(pages.current+1))
                radio = survey.radio(label="label",
-                         options=f_i[pages.current].split(','),
+                         options=input.iloc[pages.current].tolist(),
                          index=0,
                          label_visibility="collapsed",
                          horizontal=True,
