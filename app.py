@@ -193,11 +193,11 @@ if Input is not None:
       st.dataframe(lookup)
       # the manufacturer CSV file is imported
 
-      f = open('manufacturers.csv', 'r')
+      #f = open('manufacturers.csv', 'r')
 
       # it's then converted to an array to generate the survey 
 
-      f_i = (f.read()).split('\n')
+      #f_i = (f.read()).split('\n')
 
       #generating the survey
       survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
