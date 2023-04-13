@@ -201,19 +201,26 @@ if Input is not None:
 
       #generating the survey
       survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
-      pages = survey.pages(len(input.index), on_submit=lambda: calculate_and_plot_user_preference(input,lookup,input_selection(survey.to_json()),S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
+      pages = survey.pages(len(input.index), on_submit=lambda: st.json(survey.to_json()) #calculate_and_plot_user_preference(input,lookup,input_selection(survey.to_json()),S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
 
       # generating the survey radios
 
       with pages:
-               st.subheader("question " + str(pages.current+1))
-               radio = survey.radio(label="label",
-                         options=input.iloc[pages.current].tolist(),
-                         index=0,
-                         label_visibility="collapsed",
-                         horizontal=True,
-                         id=str(pages.current)
-                         )                   
+               st.subheader((input.iloc[pages.current].tolist())[0])
+               Slb0 = survey.selectbox("rating:", options=[1,2,3,4],index=0,id=str(pages.current))
+               st.subheader((input.iloc[pages.current].tolist())[1])
+               Slb1 = survey.selectbox("rating:", options=[1,2,3,4],index=0,id=str(pages.current))
+               st.subheader((input.iloc[pages.current].tolist())[2])
+               Slb2 = survey.selectbox("rating:", options=[1,2,3,4],index=0,id=str(pages.current))
+               st.subheader((input.iloc[pages.current].tolist())[3])
+               Slb3 = survey.selectbox("rating:", options=[1,2,3,4],index=0,id=str(pages.current))
+               #radio = survey.radio(label="label",
+                         #options=input.iloc[pages.current].tolist(),
+                         #index=0,
+                         #label_visibility="collapsed",
+                         #horizontal=True,
+                         #id=str(pages.current)
+                         #)                   
                 
         
                      
