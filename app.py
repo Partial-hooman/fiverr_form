@@ -209,11 +209,11 @@ if Input is not None:
                st.subheader((input.iloc[pages.current].tolist())[0])
                Slb0 = survey.selectbox("rating:", options=[1,2,3,4],index=0,id=str(pages.current))
                st.subheader((input.iloc[pages.current].tolist())[1])
-               Slb1 = survey.selectbox("rating:", options=[1,2,3,4],index=0,id=str(pages.current))
+               Slb1 = survey.selectbox("rating:", options=[1,2,3,4],index=0,id=str(pages.current+1))
                st.subheader((input.iloc[pages.current].tolist())[2])
-               Slb2 = survey.selectbox("rating:", options=[1,2,3,4],index=0,id=str(pages.current))
+               Slb2 = survey.selectbox("rating:", options=[1,2,3,4],index=0,id=str(pages.current+2))
                st.subheader((input.iloc[pages.current].tolist())[3])
-               Slb3 = survey.selectbox("rating:", options=[1,2,3,4],index=0,id=str(pages.current))
+               Slb3 = survey.selectbox("rating:", options=[1,2,3,4],index=0,id=str(pages.current+3))
                #radio = survey.radio(label="label",
                          #options=input.iloc[pages.current].tolist(),
                          #index=0,
