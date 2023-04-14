@@ -268,7 +268,7 @@ if Input is not None:
 
       #generating the survey
       survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
-      pages = survey.pages(len(input.index), on_submit=lambda: calculate_and_plot_user_preference(input,lookup,input_ratings(survey.to_json(),input)),S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
+      pages = survey.pages(len(input.index), on_submit=lambda: calculate_and_plot_user_preference(input,lookup,input_ratings(survey.to_json(),input=input)),S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
 
       # generating the survey radios
 
