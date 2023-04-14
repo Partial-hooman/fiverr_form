@@ -26,6 +26,10 @@ def input_ratings(json):
     b = []
     c = []
     d = []
+    a_ratings = []
+    b_ratings = []
+    c_ratings = []
+    d_ratings = []
     DF = pd.read_json(json)
     #DF = DF.to_csv()
     DF = DF.drop(['label'])
@@ -40,8 +44,17 @@ def input_ratings(json):
            c.append(x)
         elif "D" in x:
            d.append(x)
-    st.write(a,b,c,d)
-        
+    #st.write(a,b,c,d)
+    for x in a:
+        a_ratings.append(DF[x])
+    for x in b:
+        b_ratings.append(DF[x])
+    for x in c:
+        c_ratings.append(DF[x])
+    for x in d:
+        d_ratings.append(DF[x])
+    
+    st.write(a_ratings,b_ratings,c_ratings,d_ratings)    
    
 
 
