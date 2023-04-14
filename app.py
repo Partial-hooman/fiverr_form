@@ -58,7 +58,7 @@ def input_ratings(json,INP):
     for x in d:
         d_ratings.append(DF[x].tolist()[0])
     Data = {"Ratings  1":a_ratings,INP.columns[0]:A,"Ratings  2":b_ratings,INP.columns[1]:B,"ratings  3":c_ratings,INP.columns[2]:C,"ratings  4":d_ratings,INP.columns[3]:D}
-    st.write(a_ratings,b_ratings,c_ratings,d_ratings)
+    #st.write(a_ratings,b_ratings,c_ratings,d_ratings)
     st.write('Ratings:')    
     st.dataframe(Data)
     ratings = [sum(a_ratings),sum(b_ratings),sum(c_ratings),sum(d_ratings)]
@@ -277,13 +277,13 @@ if Input is not None:
       # generating the survey radios
 
       with pages:
-               st.subheader((input.iloc[pages.current].tolist())[0])
+               st.write((input.iloc[pages.current].tolist())[0])
                Slb0 = survey.selectbox("rating:", options=[1,2,3,4],id=f"A_{pages.current}")
-               st.subheader((input.iloc[pages.current].tolist())[1])
+               st.write((input.iloc[pages.current].tolist())[1])
                Slb1 = survey.selectbox("rating:", options=[1,2,3,4],id=f"B_{pages.current}")
-               st.subheader((input.iloc[pages.current].tolist())[2])
+               st.write((input.iloc[pages.current].tolist())[2])
                Slb2 = survey.selectbox("rating:", options=[1,2,3,4],id=f"C_{pages.current}")
-               st.subheader((input.iloc[pages.current].tolist())[3])
+               st.write((input.iloc[pages.current].tolist())[3])
                Slb3 = survey.selectbox("rating:", options=[1,2,3,4],id=f"D_{pages.current}")
                #radio = survey.radio(label="label",
                          #options=input.iloc[pages.current].tolist(),
