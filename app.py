@@ -20,6 +20,15 @@ def input_selection(json):
          CSV = csv2[1].split(',')
          return CSV
          
+
+def input_ratings(json):
+    DF = pd.read_json(json)
+    DF = DF.to_csv()
+    st.write(DF)
+   
+
+
+
  
 def create_download_link(val, filename):
     b64 = base64.b64encode(val)  # val looks like b'...'
@@ -201,7 +210,7 @@ if Input is not None:
 
       #generating the survey
       survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
-      pages = survey.pages(len(input.index), on_submit=lambda: st.json(survey.to_json())) #calculate_and_plot_user_preference(input,lookup,input_selection(survey.to_json()),S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
+      pages = survey.pages(len(input.index), on_submit=lambda: input_ratings(survey.to_json())) #calculate_and_plot_user_preference(input,lookup,input_selection(survey.to_json()),S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
 
       # generating the survey radios
 
