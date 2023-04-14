@@ -199,7 +199,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input):#,S_count,G_count,O_c
               font_color="darkred",
               font_family="Times New Roman",
               font_size=16,
-              text="Lookup data:",
+              text="Ratings:",
               ),
          tbl_header=dict(
               align="right",
