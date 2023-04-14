@@ -23,8 +23,8 @@ def input_selection(json):
 
 def input_ratings(json):
     DF = pd.read_json(json)
-    DF = DF.to_csv()
-    st.write(DF)
+    #DF = DF.to_csv()
+    st.dataframe(DF)
    
 
 
