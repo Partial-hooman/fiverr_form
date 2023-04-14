@@ -225,7 +225,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input):#,S_count,G_count,O_c
    df2img.save_dataframe(fig=Df_fig, filename=df_temp.name)
    df2img.save_dataframe(fig=Df_fig2, filename=df_temp2.name)
    df2img.save_dataframe(fig=Df_fig3, filename=df_temp3.name)
-   pdf = FPDF()
+   pdf = FPDF('L')
    pdf.add_page()
    pdf.image(str(df_temp.name))
    pdf.image(str(df_temp2.name))
