@@ -57,7 +57,7 @@ def input_ratings(json,INP):
         c_ratings.append(DF[x].tolist()[0])
     for x in d:
         d_ratings.append(DF[x].tolist()[0])
-    Data = {"Ratings 1":a_ratings,INP.columns[0]:A,"Ratings 2":b_ratings,INP.columns[1]:B,"ratings 3":c_ratings,INP.columns[2]:C,"ratings 4":d_ratings,INP.columns[3]:D}
+    Data = {"Ratings  1":a_ratings,INP.columns[0]:A,"Ratings  2":b_ratings,INP.columns[1]:B,"ratings  3":c_ratings,INP.columns[2]:C,"ratings  4":d_ratings,INP.columns[3]:D}
     st.write(a_ratings,b_ratings,c_ratings,d_ratings)
     st.write('Ratings:')    
     st.dataframe(Data)
@@ -173,7 +173,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input):#,S_count,G_count,O_c
          line_color="darkslategray",
               ),
          row_fill_color=("#ffffff", "#d7d8d6"),
-         fig_size=(1440, 2880)
+         fig_size=(960, 5880)
         )
    Df_fig2 = df2img.plot_dataframe(
          Lookup,
@@ -195,7 +195,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input):#,S_count,G_count,O_c
          line_color="darkslategray",
               ),
          row_fill_color=("#ffffff", "#d7d8d6"),
-         fig_size=(1440, 2880)
+         fig_size=(960, 5880)
         )
    Df_fig3 = df2img.plot_dataframe(
          Frame,
@@ -217,7 +217,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input):#,S_count,G_count,O_c
          line_color="darkslategray",
               ),
          row_fill_color=("#ffffff", "#d7d8d6"),
-         fig_size=(1440, 2880)
+         fig_size=(960, 5880)
         )
    df_temp = tempfile.NamedTemporaryFile(suffix='.png')
    df_temp2 = tempfile.NamedTemporaryFile(suffix='.png')
