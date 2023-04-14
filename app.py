@@ -22,6 +22,10 @@ def input_selection(json):
          
 
 def input_ratings(json,INP):
+    A = (INP.iloc[:,0]).tolist()
+    B = (INP.iloc[:,1]).tolist()
+    C = (INP.iloc[:,2]).tolist()
+    D = (INP.iloc[:,3]).tolist()
     a = []
     b = []
     c = []
@@ -53,7 +57,7 @@ def input_ratings(json,INP):
         c_ratings.append(DF[x].tolist()[0])
     for x in d:
         d_ratings.append(DF[x].tolist()[0])
-    Data = {INP.columns[0]+"_ratings":a_ratings,INP.columns[1]+"_ratings":b_ratings,INP.columns[2]+"_ratings":c_ratings,INP.columns[3]+"_ratings":d_ratings}
+    Data = {"Ratings":a_ratings,INP.columns[0]:A,"Ratings":b_ratings,INP.columns[1]:B,"ratings":c_ratings,INP.columns[2]:C,"ratings":d_ratings,INP.columns[3]:D}
     #st.write(a_ratings,b_ratings,c_ratings,d_ratings)
     st.subheader('Ratings:')    
     st.dataframe(Data)
