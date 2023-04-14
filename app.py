@@ -57,7 +57,7 @@ def input_ratings(json,INP):
         c_ratings.append(DF[x].tolist()[0])
     for x in d:
         d_ratings.append(DF[x].tolist()[0])
-    Data = {"Ratings":a_ratings,INP.columns[0]:A,"Ratings":b_ratings,INP.columns[1]:B,"ratings":c_ratings,INP.columns[2]:C,"ratings":d_ratings,INP.columns[3]:D}
+    Data = {"Ratings 1":a_ratings,INP.columns[0]:A,"Ratings 2":b_ratings,INP.columns[1]:B,"ratings 3":c_ratings,INP.columns[2]:C,"ratings 4":d_ratings,INP.columns[3]:D}
     st.write(a_ratings,b_ratings,c_ratings,d_ratings)
     st.write('Ratings:')    
     st.dataframe(Data)
