@@ -33,7 +33,7 @@ def input_ratings(json,INP):
     DF = pd.read_json(json)
     #DF = DF.to_csv()
     DF = DF.drop(['label'])
-    st.dataframe(DF)
+    #st.dataframe(DF)
     columns = list(DF.columns)
     for x in columns:
         if "A" in x:
@@ -54,9 +54,11 @@ def input_ratings(json,INP):
     for x in d:
         d_ratings.append(DF[x].tolist()[0])
     Data = {INP.columns[0]+"_ratings":a_ratings,INP.columns[1]+"_ratings":b_ratings,INP.columns[2]+"_ratings":c_ratings,INP.columns[3]+"_ratings":d_ratings}
-    #st.write(a_ratings,b_ratings,c_ratings,d_ratings)    
+    #st.write(a_ratings,b_ratings,c_ratings,d_ratings)
+    st.subheader('Ratings:')    
     st.dataframe(Data)
-
+    ratings = [sum(a_ratings),sum(b_ratings),sum(c_ratings),sum(d_ratings)]
+    return ratings
 
 
  
