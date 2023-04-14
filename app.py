@@ -46,7 +46,7 @@ def input_ratings(json):
            d.append(x)
     #st.write(a,b,c,d)
     for x in a:
-        a_ratings.append("".join((DF[x].tolist()))
+        a_ratings.append("".join(DF[x].tolist()))
     for x in b:
         b_ratings.append("".join(DF[x].tolist()))
     for x in c:
