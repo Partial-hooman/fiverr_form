@@ -24,6 +24,7 @@ def input_selection(json):
 def input_ratings(json):
     DF = pd.read_json(json)
     #DF = DF.to_csv()
+    DF = DF.drop(['label'])
     st.dataframe(DF)
    
 
