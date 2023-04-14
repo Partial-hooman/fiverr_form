@@ -22,10 +22,26 @@ def input_selection(json):
          
 
 def input_ratings(json):
+    a = []
+    b = []
+    c = []
+    d = []
     DF = pd.read_json(json)
     #DF = DF.to_csv()
     DF = DF.drop(['label'])
     st.dataframe(DF)
+    columns = list(DF.columns)
+    for x in columns:
+        if "A" in x:
+           a.append(x)
+        elif "B" in x:
+           b.append(x)
+        elif "C" in x:
+           c.append(x)
+        elif "D" in x:
+           d.append(x)
+    st.write(a,b,c,d)
+        
    
 
 
