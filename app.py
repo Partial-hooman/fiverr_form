@@ -133,7 +133,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input):#,S_count,G_count,O_c
    for x in range(len(pref2)):
        my_srs = pd.Series(prefs).astype(int)
        user_pref = "".join((my_srs.index[my_srs == pref2[x]].tolist()))
-       st.subheader(str(x+1)+"."+user_pref)
+       st.write(str(x+1)+"."+user_pref)
    #user_pref = list(filter(lambda x: prefs[x] == max(pref), prefs))[0]
    #st.write('USER RESPONSE: ' + "[" + ','.join(input) + ']')
    #my_srs = pd.Series(prefs).astype(int)
