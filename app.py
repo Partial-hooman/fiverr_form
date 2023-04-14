@@ -88,7 +88,7 @@ T_count = 0
 
 # function to calculate user pref and plot graph, takes user selection as input 
 
-def calculate_and_plot_user_preference(Input,Lookup,input)#,S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D):
+def calculate_and_plot_user_preference(Input,Lookup,input):#,S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D):
    # count calculation 
    #inp = []
    #for x in input:
