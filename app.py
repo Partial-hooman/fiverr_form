@@ -21,7 +21,7 @@ def input_selection(json):
          return CSV
          
 
-def input_ratings(json):
+def input_ratings(json,inp):
     a = []
     b = []
     c = []
@@ -53,9 +53,9 @@ def input_ratings(json):
         c_ratings.append(DF[x].tolist()[0])
     for x in d:
         d_ratings.append(DF[x].tolist()[0])
-    
-    st.write(a_ratings,b_ratings,c_ratings,d_ratings)    
-   
+    Data = {INP.columns[0]+"_ratings":a_ratings,INP.columns[1]+"_ratings":b_ratings,INP.columns[2]+"_ratings":c_ratings,INP.columns[3]+"_ratings":d_ratings}
+    #st.write(a_ratings,b_ratings,c_ratings,d_ratings)    
+    st.dataframe(Data)
 
 
 
