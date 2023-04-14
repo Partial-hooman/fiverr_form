@@ -46,13 +46,13 @@ def input_ratings(json):
            d.append(x)
     #st.write(a,b,c,d)
     for x in a:
-        a_ratings.append("".join(DF[x].tolist()))
+        a_ratings.append(DF[x].astype('int'))
     for x in b:
-        b_ratings.append("".join(DF[x].tolist()))
+        b_ratings.append(DF[x].astype('int'))
     for x in c:
-        c_ratings.append("".join(DF[x].tolist()))
+        c_ratings.append(DF[x].astype('int'))
     for x in d:
-        d_ratings.append("".join(DF[x].tolist()))
+        d_ratings.append(DF[x].astype('int'))
     
     st.write(a_ratings,b_ratings,c_ratings,d_ratings)    
    
