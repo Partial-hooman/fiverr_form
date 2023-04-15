@@ -277,7 +277,7 @@ if Input is not None:
       # generating the survey radios
 
       with pages:
-               col0, padding0, col1, padding1, col2, padding2, col3, padding3 = st.columns([1,1.4,1,1.4,1,1.4,1,1.4])
+               col0, padding0, col1, padding1, col2, padding2, col3, padding3 = st.columns([1,1.5,1,1.5,1,1.5,1,1.5])
                with col0:
                        st.write("    ")
                        st.write("    ")
