@@ -277,7 +277,7 @@ if Input is not None:
       # generating the survey radios
 
       with pages:
-               col0, col1, col2, col3 = st.columns([1,1,1,1])
+               col0, col1, col2, col3 = st.columns([1,2,3,4])
                with col0:
                        st.write((input.iloc[pages.current].tolist())[0])
                        Slb0 = survey.selectbox("rating:", options=[1,2,3,4],id=f"A_{pages.current}",label_visibility="collapsed")
