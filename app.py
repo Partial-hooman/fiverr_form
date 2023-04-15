@@ -277,14 +277,19 @@ if Input is not None:
       # generating the survey radios
 
       with pages:
-               st.write((input.iloc[pages.current].tolist())[0])
-               Slb0 = survey.selectbox("rating:", options=[1,2,3,4],id=f"A_{pages.current}")
-               st.write((input.iloc[pages.current].tolist())[1])
-               Slb1 = survey.selectbox("rating:", options=[1,2,3,4],id=f"B_{pages.current}")
-               st.write((input.iloc[pages.current].tolist())[2])
-               Slb2 = survey.selectbox("rating:", options=[1,2,3,4],id=f"C_{pages.current}")
-               st.write((input.iloc[pages.current].tolist())[3])
-               Slb3 = survey.selectbox("rating:", options=[1,2,3,4],id=f"D_{pages.current}")
+               col0, col1, col2, col3 = st.columns(4)
+               with col0:
+                       st.write((input.iloc[pages.current].tolist())[0])
+                       Slb0 = survey.selectbox("rating:", options=[1,2,3,4],id=f"A_{pages.current}")
+               with col1:
+                       st.write((input.iloc[pages.current].tolist())[1])
+                       Slb1 = survey.selectbox("rating:", options=[1,2,3,4],id=f"B_{pages.current}")
+               with col2:
+                       st.write((input.iloc[pages.current].tolist())[2])
+                       Slb2 = survey.selectbox("rating:", options=[1,2,3,4],id=f"C_{pages.current}")
+               with col3:
+                       st.write((input.iloc[pages.current].tolist())[3])
+                       Slb3 = survey.selectbox("rating:", options=[1,2,3,4],id=f"D_{pages.current}")
                #radio = survey.radio(label="label",
                          #options=input.iloc[pages.current].tolist(),
                          #index=0,
