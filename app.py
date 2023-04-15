@@ -283,7 +283,8 @@ if Input is not None:
                        st.write("    ")
                        Slb0 = survey.selectbox("rating:", options=[1,2,3,4],id=f"A_{pages.current}",label_visibility="collapsed")
                with padding0:
-                       st.write("            " + (input.iloc[pages.current].tolist())[0])
+                       st.markdown(f"<h1 style='text-align: center; color: red;'>{(input.iloc[pages.current].tolist())[0]}</h1>", unsafe_allow_html=True)
+                       #st.write((input.iloc[pages.current].tolist())[0])
                with col1:
                        st.write((input.iloc[pages.current].tolist())[1])
                        Slb1 = survey.selectbox("rating:", options=[1,2,3,4],id=f"B_{pages.current}",label_visibility="collapsed")
