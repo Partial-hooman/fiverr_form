@@ -306,7 +306,7 @@ if Input is not None:
                        st.write("    ")
                        #st.write((input.iloc[pages.current].tolist())[3])
                        Slb3 = survey.selectbox("rating:", options=[1,2,3,4],id=f"D_{pages.current}",label_visibility="collapsed")
-                with padding3:
+               with padding3:
                        st.markdown(f"<p style='text-align: center;'>{(input.iloc[pages.current].tolist())[3]}</p>", unsafe_allow_html=True)
                        #st.write((input.iloc[pages.current].tolist())[0])
                #radio = survey.radio(label="label",
