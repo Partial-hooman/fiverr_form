@@ -279,10 +279,10 @@ if Input is not None:
       with pages:
                col0, padding0, col1, padding1, col2, padding2, col3, padding3 = st.columns([1,1,1,1,1,1,1,1])
                with col0:
-                       st.write("       " + (input.iloc[pages.current].tolist())[0])
+                       st.write("                                                    " + (input.iloc[pages.current].tolist())[0])
                        Slb0 = survey.selectbox("rating:", options=[1,2,3,4],id=f"A_{pages.current}",label_visibility="collapsed")
                with col1:
-                       st.write("       " + (input.iloc[pages.current].tolist())[1])
+                       st.write("                                   " + (input.iloc[pages.current].tolist())[1])
                        Slb1 = survey.selectbox("rating:", options=[1,2,3,4],id=f"B_{pages.current}",label_visibility="collapsed")
                with col2:
                        st.write("       " + (input.iloc[pages.current].tolist())[2])
