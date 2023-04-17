@@ -120,14 +120,8 @@ def calculate_and_plot_user_preference(Input,input):
               ),
          row_fill_color=("#ffffff", "#d7d8d6"),
          fig_size=(790, 1440)
-         ),
-         tbl_cells=dict(
-         align="right",
-         line_color="darkslategray",
-              ),
-         row_fill_color=("#ffffff", "#d7d8d6"),
-         fig_size=(790, 1440)
-        )
+         )
+      
    Df_fig3 = df2img.plot_dataframe(
          Frame,
          title=dict(
