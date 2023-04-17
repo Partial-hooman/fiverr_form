@@ -192,17 +192,11 @@ Lookup = st.file_uploader("upload the lookup CSV", type='csv')
 
 
 if Input is not None:
-   if Lookup is not None:
       input = pd.read_csv(Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
       B = (input.iloc[:,1]).tolist()
       C = (input.iloc[:,2]).tolist()
       D = (input.iloc[:,3]).tolist()
-      lookup = pd.read_csv(Lookup,sep=r'\s*,\s*', engine='python')
-      S = (lookup.iloc[:,0]).tolist()
-      G = (lookup.iloc[:,1]).tolist()
-      O = (lookup.iloc[:,2]).tolist()
-      T = (lookup.iloc[:,3]).tolist()
       st.header("uploaded data frames")
       st.write("Main Data:")
       st.dataframe(input)
