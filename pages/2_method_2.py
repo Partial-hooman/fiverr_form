@@ -188,7 +188,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input):
     
 
 Input = st.file_uploader("upload the input csv", type='csv')
-Lookup = st.file_uploader("upload the lookup CSV", type='csv')
+
 
 
 if Input is not None:
