@@ -149,7 +149,7 @@ def calculate_and_plot_user_preference(Input,input):
               ),
          row_fill_color=("#ffffff", "#d7d8d6"),
          fig_size=(805, 1440)
-        )
+         )
    df_temp = tempfile.NamedTemporaryFile(suffix='.png')
    df_temp3 = tempfile.NamedTemporaryFile(suffix='.png')
    df2img.save_dataframe(fig=Df_fig, filename=df_temp.name)
