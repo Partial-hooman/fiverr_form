@@ -151,7 +151,6 @@ def calculate_and_plot_user_preference(Input,input):
    pdf = FPDF('L')
    pdf.add_page()
    pdf.image(str(df_temp.name))
-   pdf.image(str(df_temp2.name))
    pdf.image(str(df_temp3.name))
    pdf.set_font('Arial', 'B', 16)
    pdf.image(str(temp.name),x=-25)
