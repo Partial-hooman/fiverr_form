@@ -70,7 +70,7 @@ def create_download_link(val, filename):
 
 # function to calculate user pref and plot graph using method2
 
-def calculate_and_plot_user_preference(Input,Lookup,input):
+def calculate_and_plot_user_preference(Input,input):
 
                        
   
@@ -121,21 +121,6 @@ def calculate_and_plot_user_preference(Input,Lookup,input):
          row_fill_color=("#ffffff", "#d7d8d6"),
          fig_size=(790, 1440)
         )
-   Df_fig2 = df2img.plot_dataframe(
-         Lookup,
-         title=dict(
-              font_color="darkred",
-              font_family="Times New Roman",
-              font_size=16,
-              text="Lookup data:",
-              ),
-         tbl_header=dict(
-              align="right",
-              fill_color="blue",
-              font_color="white",
-              font_size=10,
-              line_color="darkslategray",
-              ),
          tbl_cells=dict(
          align="right",
          line_color="darkslategray",
@@ -166,10 +151,8 @@ def calculate_and_plot_user_preference(Input,Lookup,input):
          fig_size=(805, 1440)
         )
    df_temp = tempfile.NamedTemporaryFile(suffix='.png')
-   df_temp2 = tempfile.NamedTemporaryFile(suffix='.png')
    df_temp3 = tempfile.NamedTemporaryFile(suffix='.png')
    df2img.save_dataframe(fig=Df_fig, filename=df_temp.name)
-   df2img.save_dataframe(fig=Df_fig2, filename=df_temp2.name)
    df2img.save_dataframe(fig=Df_fig3, filename=df_temp3.name)
    pdf = FPDF('L')
    pdf.add_page()
@@ -200,13 +183,12 @@ if Input is not None:
       st.header("uploaded data frames")
       st.write("Main Data:")
       st.dataframe(input)
-      st.write("lookup table:")
-      st.dataframe(lookup)
+
 
 
       #generating the survey
       survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
-      pages = survey.pages(len(input.index), on_submit=lambda: calculate_and_plot_user_preference(input,lookup,input_ratings(survey.to_json(),input)))#,S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
+      pages = survey.pages(len(input.index), on_submit=lambda: calculate_and_plot_user_preference(input,input_ratings(survey.to_json(),input)))#,S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
 
       # generating the survey radios
 
