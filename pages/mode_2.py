@@ -7,19 +7,8 @@ import plotly.express as px
 import streamlit as st
 import streamlit_survey as ss
 import pandas as pd
-#converts user input into array for further calculations
-#import io
-def input_selection(json):
-         df = pd.read_json(json) 
-         csv = df.to_csv() #the json is converted into csv
-         csv1 = csv.split('\n') #the CSV is converted to an array to remove the unecessary rows and columns
-         #removing unecessary rows and columns 
-         csv1.pop(1)
-         csv1.pop(2)
-         csv2=[csv1[0][1:],csv1[1].replace('value,','')]
-         CSV = csv2[1].split(',')
-         return CSV
-         
+
+# prepares the ratings for calculations        
 
 def input_ratings(json,INP):
     A = (INP.iloc[:,0]).tolist()
@@ -35,9 +24,7 @@ def input_ratings(json,INP):
     c_ratings = []
     d_ratings = []
     DF = pd.read_json(json)
-    #DF = DF.to_csv()
     DF = DF.drop(['label'])
-    #st.dataframe(DF)
     columns = list(DF.columns)
     for x in columns:
         if "A" in x:
@@ -48,7 +35,6 @@ def input_ratings(json,INP):
            c.append(x)
         elif "D" in x:
            d.append(x)
-    #st.write(a,b,c,d)
     for x in a:
         a_ratings.append(DF[x].tolist()[0])
     for x in b:
@@ -58,7 +44,6 @@ def input_ratings(json,INP):
     for x in d:
         d_ratings.append(DF[x].tolist()[0])
     Data = {"Ratings  1":a_ratings,INP.columns[0]:A,"Ratings  2":b_ratings,INP.columns[1]:B,"ratings  3":c_ratings,INP.columns[2]:C,"ratings  4":d_ratings,INP.columns[3]:D}
-    #st.write(a_ratings,b_ratings,c_ratings,d_ratings)
     st.write('Ratings:')    
     st.dataframe(Data)
     ratings = [sum(a_ratings),sum(b_ratings),sum(c_ratings),sum(d_ratings)]
@@ -73,10 +58,6 @@ def create_download_link(val, filename):
 
 
 
-S_count = 0
-G_count = 0
-O_count = 0
-T_count = 0
 
 
 
@@ -87,58 +68,25 @@ T_count = 0
 
 
 
+# function to calculate user pref and plot graph using method2
 
+def calculate_and_plot_user_preference(Input,Lookup,input):
 
-
-# function to calculate user pref and plot graph, takes user selection as input 
-
-def calculate_and_plot_user_preference(Input,Lookup,input):#,S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D):
-   # count calculation 
-   #inp = []
-   #for x in input:
-         #if x in A:
-            #inp.append("A")
-         #if x in B:
-            #inp.append("B")
-         #if x in C:
-            #inp.append("C")
-         #if x in D:
-            #inp.append("D")
                        
   
    ratings, Frame = input
-   #inp2 = {(list(Input.columns))[0]:A,(list(Input.columns))[1]:B,(list(Input.columns))[2]:C,(list(Input.columns))[3]:D}
-   #st.write('['+",".join(inp)+']')
-   #for i in range(len(input)):
-         #if input[i].strip() in inp2.get(S[i]):
-            #S_count += 1
-            #st.write("S",S[i])
-         #elif input[i].strip() in inp2.get(G[i]):
-            #G_count += 1
-            #st.write("G",G[i])
-         #elif input[i].strip() in inp2.get(O[i]):
-            #O_count += 1
-            #st.write("O",O[i])
-         #elif input[i].strip() in inp2.get(T[i]):
-            #T_count += 1
-            #st.write("T",T[i])
-         
 
    prefs = {(list(Input.columns))[0]:ratings[0],(list(Input.columns))[1]:ratings[1],(list(Input.columns))[2]:ratings[2],(list(Input.columns))[3]:ratings[3]}
    pref = ratings 
    pref2 = [*set(pref)]
    pref2.sort(reverse = True)
-   #st.write('USER RESPONSE: ' + "[" + ','.join(input) + ']')
+
    st.header("User preference is:")
    for x in range(len(pref2)):
        my_srs = pd.Series(prefs).astype(int)
        user_pref = "".join((my_srs.index[my_srs == pref2[x]].tolist()))
        st.write(str(x+1)+"."+user_pref)
-   #user_pref = list(filter(lambda x: prefs[x] == max(pref), prefs))[0]
-   #st.write('USER RESPONSE: ' + "[" + ','.join(input) + ']')
-   #my_srs = pd.Series(prefs).astype(int)
-   #user_pref = "".join((my_srs.index[my_srs == max(pref)].tolist()))
-   #st.header("User preference is " + user_pref)
+
    st.write(prefs)
    #plotting the graph 
    P_df = pd.DataFrame(dict(r=ratings,theta=[list(Input.columns)[0],list(Input.columns)[1],list(Input.columns)[2],list(Input.columns)[3]]))
@@ -146,11 +94,9 @@ def calculate_and_plot_user_preference(Input,Lookup,input):#,S_count,G_count,O_c
    st.plotly_chart(fig)
    fig2 = px.pie(values=pref, names=[list(Input.columns)[0],list(Input.columns)[1],list(Input.columns)[2],list(Input.columns)[3]], hole=.5,color_discrete_sequence=["#0068c9","#83c9ff","#ff2b2b","#ffabab","#29b09d","#7defa1","#ff8700","#ffd16a","#6d3fc0","#d5dae5"])
    st.plotly_chart(fig2)
-   #buffer = io.BytesIO()
-   #buffer2 = io.BytesIO()
    temp = tempfile.NamedTemporaryFile(suffix='.png')
    temp2 = tempfile.NamedTemporaryFile(suffix='.png')
-   # Save the figure as a pdf to the buffer
+   # Save the figures as a pdf 
    fig.write_image(file=temp, format="png")
    fig2.write_image(file=temp2, format="png")
    Df_fig = df2img.plot_dataframe(
@@ -262,13 +208,7 @@ if Input is not None:
       st.dataframe(input)
       st.write("lookup table:")
       st.dataframe(lookup)
-      # the manufacturer CSV file is imported
 
-      #f = open('manufacturers.csv', 'r')
-
-      # it's then converted to an array to generate the survey 
-
-      #f_i = (f.read()).split('\n')
 
       #generating the survey
       survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
@@ -281,42 +221,25 @@ if Input is not None:
                with col0:
                        st.write("    ")
                        st.write("    ")
-                       #st.write("    ")
                        Slb0 = survey.selectbox("rating:", options=[1,2,3,4],id=f"A_{pages.current}",label_visibility="collapsed")
                with padding0:
                        st.markdown(f"<p style='text-align: center;'>{(input.iloc[pages.current].tolist())[0].strip()}</p>", unsafe_allow_html=True)
-                       #st.write((input.iloc[pages.current].tolist())[0])
                with col1:
                        st.write("    ")
                        st.write("    ")
-                       #st.write("    ")
-                       #st.write((input.iloc[pages.current].tolist())[1])
                        Slb1 = survey.selectbox("rating:", options=[1,2,3,4],id=f"B_{pages.current}",label_visibility="collapsed")
                with padding1:
                        st.markdown(f"<p style='text-align: center;'>{(input.iloc[pages.current].tolist())[1].strip()}</p>", unsafe_allow_html=True)
-                       #st.write((input.iloc[pages.current].tolist())[0])
                with col2:
                        st.write("    ")
                        st.write("    ")
-                       #st.write("    ")
-                       #st.write((input.iloc[pages.current].tolist())[2])
                        Slb2 = survey.selectbox("rating:", options=[1,2,3,4],id=f"C_{pages.current}",label_visibility="collapsed")
                with padding2:
                        st.markdown(f"<p style='text-align: center;'>{(input.iloc[pages.current].tolist())[2].strip()}</p>", unsafe_allow_html=True)
-                       #st.write((input.iloc[pages.current].tolist())[0])
                with col3:
                        st.write("    ")
                        st.write("    ")
-                       #st.write("    ")
-                       #st.write((input.iloc[pages.current].tolist())[3])
                        Slb3 = survey.selectbox("rating:", options=[1,2,3,4],id=f"D_{pages.current}",label_visibility="collapsed")
                with padding3:
                        st.markdown(f"<p style='text-align: center;'>{(input.iloc[pages.current].tolist())[3].strip()}</p>", unsafe_allow_html=True)
-                       #st.write((input.iloc[pages.current].tolist())[0])
-               #radio = survey.radio(label="label",
-                         #options=input.iloc[pages.current].tolist(),
-                         #index=0,
-                         #label_visibility="collapsed",
-                         #horizontal=True,
-                         #id=str(pages.current)
-                         #)                   
+        
