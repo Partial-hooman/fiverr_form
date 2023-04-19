@@ -47,6 +47,7 @@ def input_ratings(json,INP):
     st.write('Ratings:')    
     st.dataframe(Data)
     ratings = [sum(a_ratings),sum(b_ratings),sum(c_ratings),sum(d_ratings)]
+    st.write(Data)
     Frame = pd.DataFrame(Data)
     return ratings, Frame 
 
