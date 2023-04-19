@@ -164,7 +164,7 @@ def calculate_and_plot_user_preference(Input,input):
    st.markdown(html, unsafe_allow_html=True)
     
 
-_Input = st.file_uploader("upload the input csv", type='csv')
+_Input = st.file_uploader("upload the input csv", type='csv',key="method2")
 
 
 
