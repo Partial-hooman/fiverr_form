@@ -47,7 +47,7 @@ def input_ratings(json,INP):
     st.write('Ratings:')    
     st.dataframe(Data)
     ratings = [sum(a_ratings),sum(b_ratings),sum(c_ratings),sum(d_ratings)]
-    st.write(Data)
+    #st.write(Data)
     Frame = pd.DataFrame(Data)
     return ratings, Frame 
 
@@ -164,11 +164,11 @@ def calculate_and_plot_user_preference(Input,input):
    st.markdown(html, unsafe_allow_html=True)
     
 
-Input = st.file_uploader("upload the input csv", type='csv')
+_Input = st.file_uploader("upload the input csv", type='csv')
 
 
 
-if Input is not None:
+if _Input is not None:
       input = pd.read_csv(Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
       B = (input.iloc[:,1]).tolist()
