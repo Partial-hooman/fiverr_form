@@ -169,7 +169,7 @@ _Input = st.file_uploader("upload the input csv", type='csv')
 
 
 if _Input is not None:
-      input = pd.read_csv(Input,sep=r'\s*,\s*',engine='python')
+      input = pd.read_csv(_Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
       B = (input.iloc[:,1]).tolist()
       C = (input.iloc[:,2]).tolist()
