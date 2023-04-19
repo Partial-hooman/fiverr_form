@@ -170,8 +170,8 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    st.markdown(html, unsafe_allow_html=True)
     
 
-Input = st.file_uploader("upload the input csv", type='csv')
-Lookup = st.file_uploader("upload the lookup CSV", type='csv')
+Input = st.file_uploader("upload the input csv", type='csv', key="method1")
+Lookup = st.file_uploader("upload the lookup CSV", type='csv',key="method1_lookup")
 
 
 if Input is not None:
