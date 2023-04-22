@@ -1,4 +1,4 @@
-import streamlit as st
+
 import df2img
 import base64
 import tempfile 
@@ -7,13 +7,11 @@ import plotly.express as px
 import streamlit as st
 import streamlit_survey as ss
 import pandas as pd
-
-st.set_page_config(
-    page_title="car comparison",
-    page_icon="",
-)
+from streamlit_option_menu import option_menu
 
 
-st.write("# CAR COMPARISON")
+with st.sidebar:
+    choose = option_menu("Car comparison", ["method1","method2"])
+    
 
-st.sidebar.success("Select a method.")
+if choose == "method1":
