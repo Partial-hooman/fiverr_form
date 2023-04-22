@@ -379,7 +379,7 @@ def calculate_and_plot_user_preference_m2(Input,input):
    st.cache_data.clear()
    st.cache_resource.clear()                
    os.execute("streamlit clear cache")               
-                  
+   st.write("cleared")               
                   
                   
                   
