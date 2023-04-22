@@ -381,8 +381,9 @@ def calculate_and_plot_user_preference_m2(Input,input):
    try:
      os.system("streamlit clear cache")
    except Exception as e:
-     st.write(e)               
-   st.write("cleared")               
+     st.write(e)
+                  
+   st.write(os.listdir("~/.streamlit/cache"))               
                   
                   
                   
