@@ -375,7 +375,7 @@ def calculate_and_plot_user_preference_m2(Input,input):
    # Download the pdf from the buffer
    html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
    st.markdown(html, unsafe_allow_html=True)                  
-                  
+   st.runtime.legacy_caching.clear_cache()               
                   
                   
                   
