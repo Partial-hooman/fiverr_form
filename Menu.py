@@ -183,11 +183,7 @@ if choose == "method1":
 
   if Input is not None:
     if Lookup is not None:
-      st.runtime.legacy_caching.clear_cache()
-      st.cache_data.clear()
-      st.cache_resource.clear()
-      st.experimental_singleton.clear()
-      st.experimental_memo.clear()
+
       input = pd.read_csv(Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
       B = (input.iloc[:,1]).tolist()
@@ -291,12 +287,7 @@ def create_download_link(val, filename):
 
 def calculate_and_plot_user_preference_m2(Input,input):
 
-                       
-   st.runtime.legacy_caching.clear_cache()
-   st.cache_data.clear()
-   st.cache_resource.clear()
-   st.experimental_memo.clear()
-   st.experimental_singleton.clear()
+
    ratings, Frame = input
 
    prefs = {(list(Input.columns))[0]:ratings[0],(list(Input.columns))[1]:ratings[1],(list(Input.columns))[2]:ratings[2],(list(Input.columns))[3]:ratings[3]}
@@ -400,11 +391,7 @@ if  choose == "method2":
 
 
    if _Input is not None:
-      st.runtime.legacy_caching.clear_cache()
-      st.cache_data.clear()
-      st.cache_resource.clear()
-      st.experimental_memo.clear()
-      st.experimental_singleton.clear()
+
       input = pd.read_csv(_Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
       B = (input.iloc[:,1]).tolist()
