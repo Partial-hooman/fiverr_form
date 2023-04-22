@@ -383,7 +383,7 @@ def calculate_and_plot_user_preference_m2(Input,input):
      st.write(os.listdir("~/.streamlit/cache"))
    except Exception as e:
      st.write(e)
-                  
+     st.write(list(st.session_state))             
                   
                   
                   
