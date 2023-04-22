@@ -183,6 +183,7 @@ if choose == "method1":
 
   if Input is not None:
     if Lookup is not None:
+      st.runtime.legacy_caching.clear_cache()
       input = pd.read_csv(Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
       B = (input.iloc[:,1]).tolist()
@@ -391,6 +392,7 @@ if  choose == "method2":
 
 
    if _Input is not None:
+      st.runtime.legacy_caching.clear_cache()
       input = pd.read_csv(_Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
       B = (input.iloc[:,1]).tolist()
