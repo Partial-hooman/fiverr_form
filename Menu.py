@@ -379,7 +379,7 @@ def calculate_and_plot_user_preference_m2(Input,input):
    st.cache_data.clear()
    st.cache_resource.clear() 
    try:
-     os.execute("streamlit clear cache")
+     os.system("streamlit clear cache")
    except Exception as e:
      st.write(e)               
    st.write("cleared")               
