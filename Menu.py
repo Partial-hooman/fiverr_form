@@ -8,6 +8,7 @@ import streamlit as st
 import streamlit_survey as ss
 import pandas as pd
 from streamlit_option_menu import option_menu
+from streamlit import caching
 
 def input_selection(json):
          df = pd.read_json(json) 
@@ -183,6 +184,7 @@ if choose == "method1":
 
   if Input is not None:
     if Lookup is not None:
+      caching.clear_cache()
       st.runtime.legacy_caching.clear_cache()
       st.cache_data.clear()
       st.cache_resource.clear()
@@ -396,6 +398,7 @@ if  choose == "method2":
 
 
    if _Input is not None:
+      caching.clear_cache()
       st.runtime.legacy_caching.clear_cache()
       st.cache_data.clear()
       st.cache_resource.clear()
