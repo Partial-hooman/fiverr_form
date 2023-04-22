@@ -377,8 +377,11 @@ def calculate_and_plot_user_preference_m2(Input,input):
    st.markdown(html, unsafe_allow_html=True)                  
    st.runtime.legacy_caching.clear_cache()               
    st.cache_data.clear()
-   st.cache_resource.clear()                
-   os.execute("streamlit clear cache")               
+   st.cache_resource.clear() 
+   try:
+     os.execute("streamlit clear cache")
+   except Exception as e:
+     st.write(e)               
    st.write("cleared")               
                   
                   
