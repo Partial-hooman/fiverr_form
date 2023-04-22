@@ -385,7 +385,7 @@ def calculate_and_plot_user_preference_m2(Input,input):
                   
                         
                   
-elif  choose == "method2":
+if  choose == "method2":
    _Input = st.file_uploader("upload the input csv", type='csv',key="method2")
 
 
