@@ -221,3 +221,66 @@ if choose == "method1":
                          horizontal=True,
                          id=str(pages.current)
                          )                   
+
+elif  choose == "method2":
+   _Input = st.file_uploader("upload the input csv", type='csv',key="method2")
+
+
+
+   if _Input is not None:
+      input = pd.read_csv(_Input,sep=r'\s*,\s*',engine='python')
+      A = (input.iloc[:,0]).tolist()
+      B = (input.iloc[:,1]).tolist()
+      C = (input.iloc[:,2]).tolist()
+      D = (input.iloc[:,3]).tolist()
+      st.header("uploaded data frames")
+      st.write("Main Data:")
+      st.dataframe(input)
+
+
+
+      #generating the survey
+      survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
+      pages = survey.pages(len(input.index), on_submit=lambda: calculate_and_plot_user_preference(input,input_ratings(survey.to_json(),input)))#,S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
+
+      # generating the survey radios
+
+      with pages:
+               col0, padding0, col1, padding1, col2, padding2, col3, padding3 = st.columns([1,1.4,1,1.4,1,1.4,1,1.4])
+               with col0:
+                       st.write("    ")
+                       st.write("    ")
+                       Slb0 = survey.selectbox("rating:", options=[1,2,3,4],id=f"A_{pages.current}",label_visibility="collapsed")
+               with padding0:
+                       st.markdown(f"<p style='text-align: center;'>{(input.iloc[pages.current].tolist())[0].strip()}</p>", unsafe_allow_html=True)
+               with col1:
+                       st.write("    ")
+                       st.write("    ")
+                       Slb1 = survey.selectbox("rating:", options=[1,2,3,4],id=f"B_{pages.current}",label_visibility="collapsed")
+               with padding1:
+                       st.markdown(f"<p style='text-align: center;'>{(input.iloc[pages.current].tolist())[1].strip()}</p>", unsafe_allow_html=True)
+               with col2:
+                       st.write("    ")
+                       st.write("    ")
+                       Slb2 = survey.selectbox("rating:", options=[1,2,3,4],id=f"C_{pages.current}",label_visibility="collapsed")
+               with padding2:
+                       st.markdown(f"<p style='text-align: center;'>{(input.iloc[pages.current].tolist())[2].strip()}</p>", unsafe_allow_html=True)
+               with col3:
+                       st.write("    ")
+                       st.write("    ")
+                       Slb3 = survey.selectbox("rating:", options=[1,2,3,4],id=f"D_{pages.current}",label_visibility="collapsed")
+               with padding3:
+                       st.markdown(f"<p style='text-align: center;'>{(input.iloc[pages.current].tolist())[3].strip()}</p>", unsafe_allow_html=True)
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+    
