@@ -60,7 +60,8 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
          #if x in D:
             #inp.append("D")
                        
-  
+  for key in st.session_state.keys():
+       del st.session_state[key]
   try:
    inp2 = {(list(Input.columns))[0]:A,(list(Input.columns))[1]:B,(list(Input.columns))[2]:C,(list(Input.columns))[3]:D}
    #st.write('['+",".join(inp)+']')
@@ -193,8 +194,7 @@ if choose == "method1":
 
   if Input is not None:
     if Lookup is not None:
-      for key in st.session_state.keys():
-       del st.session_state[key]
+      
       input = pd.read_csv(Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
       B = (input.iloc[:,1]).tolist()
