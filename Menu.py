@@ -103,11 +103,11 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    st.plotly_chart(fig2)
    #buffer = io.BytesIO()
    #buffer2 = io.BytesIO()
-   temp = tempfile.NamedTemporaryFile(suffix='.png')
-   temp2 = tempfile.NamedTemporaryFile(suffix='.png')
+   #temp = tempfile.NamedTemporaryFile(suffix='.png')
+   #temp2 = tempfile.NamedTemporaryFile(suffix='.png')
    # Save the figure as a pdf to the buffer
-   fig.write_image(file=temp, format="png")
-   fig2.write_image(file=temp2, format="png")
+   fig.write_image("fig1.png")
+   fig2.write_image("fig2.png")
    Df_fig = df2img.plot_dataframe(
          Input,
          title=dict(
@@ -152,23 +152,27 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
          row_fill_color=("#ffffff", "#d7d8d6"),
          fig_size=(560, 1440)
         )
-   df_temp = tempfile.NamedTemporaryFile(suffix='.png')
-   df_temp2 = tempfile.NamedTemporaryFile(suffix='.png')
-   df2img.save_dataframe(fig=Df_fig, filename=df_temp.name)
-   df2img.save_dataframe(fig=Df_fig2, filename=df_temp2.name)
+   #df_temp = tempfile.NamedTemporaryFile(suffix='.png')
+   #df_temp2 = tempfile.NamedTemporaryFile(suffix='.png')
+   df2img.save_dataframe(fig=Df_fig, filename="Df_fig.png")
+   df2img.save_dataframe(fig=Df_fig2, filename="Df_fig2.png")
    pdf = FPDF()
    pdf.add_page()
-   pdf.image(str(df_temp.name))
-   pdf.image(str(df_temp2.name))
+   pdf.image("Df_fig.png")
+   pdf.image("Df_fig2.png")
    pdf.set_font('Arial', 'B', 16)
-   pdf.image(str(temp.name),x=-25)
+   pdf.image("fig1.png",x=-25)
    pdf.cell(40, 10, 'User preference (radar chart)',align = 'L')
    pdf.add_page()
-   pdf.image(str(temp2.name),x=-50)
+   pdf.image("fig2.png",x=-50)
    pdf.cell(40, 10, 'User preference (pie chart)',align = 'L')
    # Download the pdf from the buffer
    html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
    st.markdown(html, unsafe_allow_html=True)
+   os.remove("fig1.png")
+   os.remove("fig2.png")
+   os.remove("Df_fig.png")
+   os.remove("Df_fig2.png")      
    for key in st.session_state.keys():
        del st.session_state[key]
   except:
@@ -317,11 +321,11 @@ def calculate_and_plot_user_preference_m2(Input,input):
    st.plotly_chart(fig)
    fig2 = px.pie(values=pref, names=[list(Input.columns)[0],list(Input.columns)[1],list(Input.columns)[2],list(Input.columns)[3]], hole=.5,color_discrete_sequence=["#0068c9","#83c9ff","#ff2b2b","#ffabab","#29b09d","#7defa1","#ff8700","#ffd16a","#6d3fc0","#d5dae5"])
    st.plotly_chart(fig2)
-   temp = tempfile.NamedTemporaryFile(suffix='.png')
-   temp2 = tempfile.NamedTemporaryFile(suffix='.png')
+   #temp = tempfile.NamedTemporaryFile(suffix='.png')
+   #temp2 = tempfile.NamedTemporaryFile(suffix='.png')
    # Save the figures as a pdf 
-   fig.write_image(file=temp, format="png")
-   fig2.write_image(file=temp2, format="png")
+   fig.write_image("fig1.png")
+   fig2.write_image("fig2.png")
    Df_fig = df2img.plot_dataframe(
          Input,
          title=dict(
@@ -367,23 +371,27 @@ def calculate_and_plot_user_preference_m2(Input,input):
          row_fill_color=("#ffffff", "#d7d8d6"),
          fig_size=(805, 1440)
          )
-   df_temp = tempfile.NamedTemporaryFile(suffix='.png')
-   df_temp3 = tempfile.NamedTemporaryFile(suffix='.png')
-   df2img.save_dataframe(fig=Df_fig, filename=df_temp.name)
-   df2img.save_dataframe(fig=Df_fig3, filename=df_temp3.name)
+   #df_temp = tempfile.NamedTemporaryFile(suffix='.png')
+   #df_temp3 = tempfile.NamedTemporaryFile(suffix='.png')
+   df2img.save_dataframe(fig=Df_fig, filename="Df_fig.png")
+   df2img.save_dataframe(fig=Df_fig3, filename="Df_fig3.png")
    pdf = FPDF('L')
    pdf.add_page()
-   pdf.image(str(df_temp.name))
-   pdf.image(str(df_temp3.name))
+   pdf.image("Df_fig.png")
+   pdf.image("Df_fig3.png")
    pdf.set_font('Arial', 'B', 16)
-   pdf.image(str(temp.name),x=-25)
+   pdf.image("fig1.png",x=-25)
    pdf.cell(40, 1, 'User preference (radar chart)',align = 'L')
    pdf.add_page()
-   pdf.image(str(temp2.name),x=25)
+   pdf.image("fig2.png",x=25)
    pdf.cell(40, 1, 'User preference (pie chart)',align = 'L')
    # Download the pdf from the buffer
    html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
-   st.markdown(html, unsafe_allow_html=True)                  
+   st.markdown(html, unsafe_allow_html=True)
+   os.remove("fig1.png")
+   os.remove("fig2.png")
+   os.remove("Df_fig.png")
+   os.remove("Df_fig3.png")
    for key in st.session_state.keys():
        del st.session_state[key]             
   except:
