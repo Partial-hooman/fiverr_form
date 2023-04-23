@@ -47,6 +47,7 @@ T_count = 0
 # function to calculate user pref and plot graph, takes user selection as input 
 
 def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D):
+
    # count calculation 
    #inp = []
    #for x in input:
@@ -60,7 +61,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
             #inp.append("D")
                        
   
-
+  try:
    inp2 = {(list(Input.columns))[0]:A,(list(Input.columns))[1]:B,(list(Input.columns))[2]:C,(list(Input.columns))[3]:D}
    #st.write('['+",".join(inp)+']')
    for i in range(len(input)):
@@ -170,7 +171,10 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    st.markdown(html, unsafe_allow_html=True)
    for key in st.session_state.keys():
        del st.session_state[key]
-
+  except:
+    for key in st.session_state.keys():
+        del st.session_state[key]
+    st.experimental_rerun()
 
 
 with st.sidebar:
@@ -226,6 +230,7 @@ if choose == "method1":
 
                   
 def input_ratings(json,INP):
+   try:
     A = (INP.iloc[:,0]).tolist()
     B = (INP.iloc[:,1]).tolist()
     C = (INP.iloc[:,2]).tolist()
@@ -265,7 +270,10 @@ def input_ratings(json,INP):
     #st.write(Data)
     Frame = pd.DataFrame(Data)
     return ratings, Frame 
-
+   except:
+     for key in st.session_state.keys():
+       del st.session_state[key]
+     st.experimental_rerun()
 
  
 def create_download_link(val, filename):
@@ -288,7 +296,7 @@ def create_download_link(val, filename):
 
 def calculate_and_plot_user_preference_m2(Input,input):
   
-   
+  try:
    ratings, Frame = input
 
    prefs = {(list(Input.columns))[0]:ratings[0],(list(Input.columns))[1]:ratings[1],(list(Input.columns))[2]:ratings[2],(list(Input.columns))[3]:ratings[3]}
@@ -378,7 +386,10 @@ def calculate_and_plot_user_preference_m2(Input,input):
    st.markdown(html, unsafe_allow_html=True)                  
    for key in st.session_state.keys():
        del st.session_state[key]             
-                  
+  except:
+   for key in st.session_state.keys():
+       del st.session_state[key]
+   st.experimental_rerun()               
                   
                   
                   
