@@ -477,7 +477,7 @@ if  choose == "method2":
         for key in st.session_state.keys():
             del st.session_state[key]
         st.experimental_rerun()
-     else:
+   else:
         pass
          
                   
