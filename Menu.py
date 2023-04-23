@@ -375,15 +375,8 @@ def calculate_and_plot_user_preference_m2(Input,input):
    # Download the pdf from the buffer
    html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
    st.markdown(html, unsafe_allow_html=True)                  
-   st.runtime.legacy_caching.clear_cache()               
-   st.cache_data.clear()
-   st.cache_resource.clear() 
-   try:
-     os.system("streamlit clear cache")
-     st.write(os.listdir("~/.streamlit/cache"))
-   except Exception as e:
-     st.write(e)
-     st.write(list(st.session_state))             
+   for key in st.session_state.keys():
+       del st.session_state[key]             
                   
                   
                   
