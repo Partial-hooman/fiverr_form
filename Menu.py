@@ -9,6 +9,8 @@ import streamlit_survey as ss
 import pandas as pd
 from streamlit_option_menu import option_menu
 
+st.write(type(st.session_state))
+
 def input_selection(json):
          df = pd.read_json(json) 
          csv = df.to_csv() #the json is converted into csv
