@@ -238,14 +238,12 @@ if choose == "method1":
      if len(list(st.session_state)) != 0:
         for key in st.session_state.keys():
             del st.session_state[key]
-        st.experimental_rerun()
      else:
         pass
   if Lookup is None:
      if len(list(st.session_state)) != 0:
         for key in st.session_state.keys():
             del st.session_state[key]
-        st.experimental_rerun()
      else:
         pass
                   
