@@ -9,7 +9,7 @@ import streamlit_survey as ss
 import pandas as pd
 from streamlit_option_menu import option_menu
 
-st.write((st.session_state))
+#st.write((st.session_state))
 
 def input_selection(json):
          df = pd.read_json(json) 
