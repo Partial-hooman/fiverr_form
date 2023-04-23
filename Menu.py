@@ -175,8 +175,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    os.remove("fig2.png")
    os.remove("Df_fig.png")
    os.remove("Df_fig2.png")      
-   for key in st.session_state.keys():
-       del st.session_state[key]
+   
   except:
     for key in st.session_state.keys():
         del st.session_state[key]
@@ -411,8 +410,7 @@ def calculate_and_plot_user_preference_m2(Input,input):
    os.remove("fig2.png")
    os.remove("Df_fig.png")
    os.remove("Df_fig3.png")
-   for key in st.session_state.keys():
-       del st.session_state[key]             
+                
   except:
    for key in st.session_state.keys():
        del st.session_state[key]
