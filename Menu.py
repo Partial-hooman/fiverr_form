@@ -168,7 +168,8 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    # Download the pdf from the buffer
    html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
    st.markdown(html, unsafe_allow_html=True)
-   
+   for key in st.session_state.keys():
+       del st.session_state[key]
 
 
 
@@ -286,8 +287,8 @@ def create_download_link(val, filename):
 # function to calculate user pref and plot graph using method2
 
 def calculate_and_plot_user_preference_m2(Input,input):
-
-
+  
+   
    ratings, Frame = input
 
    prefs = {(list(Input.columns))[0]:ratings[0],(list(Input.columns))[1]:ratings[1],(list(Input.columns))[2]:ratings[2],(list(Input.columns))[3]:ratings[3]}
