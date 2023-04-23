@@ -186,6 +186,8 @@ with st.sidebar:
     
 
 if choose == "method1":
+  for key in st.session_state.keys():
+       del st.session_state[key]
   Input = st.file_uploader("upload the input csv", type='csv', key="method1")
   Lookup = st.file_uploader("upload the lookup CSV", type='csv',key="method1_lookup")
 
@@ -405,6 +407,8 @@ def calculate_and_plot_user_preference_m2(Input,input):
                         
                   
 if  choose == "method2":
+   for key in st.session_state.keys():
+       del st.session_state[key]
    _Input = st.file_uploader("upload the input csv", type='csv',key="method2")
 
 
