@@ -494,8 +494,8 @@ if  choose == "method2":
         for key in st.session_state.keys():
            if isinstance(st.session_state[key],st.runtime.uploaded_file_manager.UploadedFile):
               pass
-           else:    
-              del st.session_state[key]
+           #else:    
+           #   del st.session_state[key]
       else:
          pass
    else:
