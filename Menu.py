@@ -190,14 +190,13 @@ with st.sidebar:
     
 
 if choose == "method1":
-  
+  st.write(st.session_state)
   Input = st.file_uploader("upload the input csv", type='csv', key="method1")
   Lookup = st.file_uploader("upload the lookup CSV", type='csv',key="method1_lookup")
 
 
   if Input is not None:
     if Lookup is not None:
-      st.write(st.session_state)
       #for key in st.session_state.keys():
       #    if isinstance(st.session_state[key],st.runtime.uploaded_file_manager.UploadedFile):
       #       st.write("true")              
