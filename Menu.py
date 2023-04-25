@@ -195,7 +195,8 @@ if choose == "method1":
   if Input is not None:
     if Lookup is not None:
       for key in st.session_state.keys():
-        st.write(type(st.session_state[key]))
+          if isinstance(st.session_state[key],st.runtime.uploaded_file_manager.UploadedFile):
+             st.write("true")              
       input = pd.read_csv(Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
       B = (input.iloc[:,1]).tolist()
