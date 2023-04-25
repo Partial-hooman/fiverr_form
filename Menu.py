@@ -197,6 +197,7 @@ if choose == "method1":
 
   if Input is not None:
     if Lookup is not None:
+      st.write(st.session_state)
       #for key in st.session_state.keys():
       #    if isinstance(st.session_state[key],st.runtime.uploaded_file_manager.UploadedFile):
       #       st.write("true")              
