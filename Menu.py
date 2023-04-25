@@ -195,7 +195,7 @@ if choose == "method1":
   if Input is not None:
     if Lookup is not None:
       for key in st.session_state.keys():
-        st.write(st.session_state[key])
+        st.write(type(st.session_state[key]))
       input = pd.read_csv(Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
       B = (input.iloc[:,1]).tolist()
