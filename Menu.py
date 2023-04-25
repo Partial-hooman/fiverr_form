@@ -178,7 +178,10 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    
   except:
     for key in st.session_state.keys():
-        del st.session_state[key]
+       if isinstance(st.session_state[key],st.runtime.uploaded_file_manager.UploadedFile):
+         pass
+       else:
+         del st.session_state[key]
     st.experimental_rerun()
 
 
@@ -194,9 +197,9 @@ if choose == "method1":
 
   if Input is not None:
     if Lookup is not None:
-      for key in st.session_state.keys():
-          if isinstance(st.session_state[key],st.runtime.uploaded_file_manager.UploadedFile):
-             st.write("true")              
+      #for key in st.session_state.keys():
+      #    if isinstance(st.session_state[key],st.runtime.uploaded_file_manager.UploadedFile):
+      #       st.write("true")              
       input = pd.read_csv(Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
       B = (input.iloc[:,1]).tolist()
@@ -238,7 +241,10 @@ if choose == "method1":
   if Input is None:
      if len(list(st.session_state)) != 0:
         for key in st.session_state.keys():
-            del st.session_state[key]
+           if isinstance(st.session_state[key],st.runtime.uploaded_file_manager.UploadedFile):
+              pass
+           else:
+              del st.session_state[key]
      else:
         pass
   else:
@@ -246,7 +252,10 @@ if choose == "method1":
   if Lookup is None:
      if len(list(st.session_state)) != 0:
         for key in st.session_state.keys():
-            del st.session_state[key]
+           if isinstance(st.session_state[key],st.runtime.uploaded_file_manager.UploadedFile):
+              pass
+           else:
+              del st.session_state[key]
      else:
         pass
   else:
@@ -296,7 +305,10 @@ def input_ratings(json,INP):
     return ratings, Frame 
    except:
      for key in st.session_state.keys():
-       del st.session_state[key]
+       if isinstance(st.session_state[key],st.runtime.uploaded_file_manager.UploadedFile):
+          pass
+       else:
+          del st.session_state[key]
      st.experimental_rerun()
 
  
@@ -415,7 +427,10 @@ def calculate_and_plot_user_preference_m2(Input,input):
                 
   except:
    for key in st.session_state.keys():
-       del st.session_state[key]
+      if isinstance(st.session_state[key],st.runtime.uploaded_file_manager.UploadedFile):
+         pass
+      else:
+         del st.session_state[key]
    st.experimental_rerun()               
                   
                   
@@ -477,7 +492,10 @@ if  choose == "method2":
    elif _Input is None:
       if len(list(st.session_state)) != 0:
         for key in st.session_state.keys():
-            del st.session_state[key]
+           if isinstance(st.session_state[key],st.runtime.uploaded_file_manager.UploadedFile):
+              pass
+           else:    
+              del st.session_state[key]
       else:
          pass
    else:
