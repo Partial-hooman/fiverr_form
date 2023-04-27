@@ -497,7 +497,22 @@ if  choose == "method2":
    #      pass
    #else:
    #     pass
-         
+ 
+@st.cache
+def merge(pdf1,pdf2):
+      merger = PdfMerger()
+      merger.append(pdf1)
+      merger.append(pdf2)
+      byte = BytesIO()
+      merger.write(byte)
+      byte.seek(0)
+      st.download_button("Download combined results", data=byte, file_name="combined.pdf",mime='application/octet-stream')
+      merger.close()
+      os.remove(pdf1)
+      os.remove(pdf2) 
+
+
+        
 if choose == "export":
    if st.session_state.output1 == "" and st.session_state.output2 == "":
       st.header("no results to export yet.")
@@ -518,16 +533,7 @@ if choose == "export":
    if st.session_state.output1 != "" and st.session_state.output2 != "":
      try:
       st.subheader("combined results:")
-      merger = PdfMerger()
-      merger.append("output1.pdf")
-      merger.append("output2.pdf")
-      byte = BytesIO()
-      merger.write(byte)
-      byte.seek(0)
-      st.download_button("Download combined results", data=byte, file_name="combined.pdf",mime='application/octet-stream')
-      merger.close()
-      os.remove("output1.pdf")
-      os.remove("output2.pdf") 
+      merge("output1.pdf","output2.pdf")
      except Exception as e:
        st.write(e)   
    else:
