@@ -9,6 +9,9 @@ import streamlit_survey as ss
 import pandas as pd
 from streamlit_option_menu import option_menu
 
+Input = 'input.csv'
+Lookup = 'lookup.csv'
+_Input = 'input.csv'
 #st.write((st.session_state))
 
 def input_selection(json):
@@ -188,12 +191,12 @@ with st.sidebar:
 
 if choose == "method1":
   
-  Input = st.file_uploader("upload the input csv", type='csv', key="method1")
-  Lookup = st.file_uploader("upload the lookup CSV", type='csv',key="method1_lookup")
+  #Input = st.file_uploader("upload the input csv", type='csv', key="method1")
+  #Lookup = st.file_uploader("upload the lookup CSV", type='csv',key="method1_lookup")
 
 
-  if Input is not None:
-    if Lookup is not None:
+  #if Input is not None:
+    #if Lookup is not None:
       
       input = pd.read_csv(Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
@@ -233,22 +236,22 @@ if choose == "method1":
                          horizontal=True,
                          id=str(pages.current)
                          )                   
-  if Input is None:
-     if len(list(st.session_state)) != 0:
-        for key in st.session_state.keys():
-            del st.session_state[key]
-     else:
-        pass
-  else:
-       pass
-  if Lookup is None:
-     if len(list(st.session_state)) != 0:
-        for key in st.session_state.keys():
-            del st.session_state[key]
-     else:
-        pass
-  else:
-       pass
+  #if Input is None:
+  #   if len(list(st.session_state)) != 0:
+  #      for key in st.session_state.keys():
+  #          del st.session_state[key]
+  #   else:
+  #      pass
+  #else:
+  #     pass
+  #if Lookup is None:
+  #   if len(list(st.session_state)) != 0:
+  #      for key in st.session_state.keys():
+  #          del st.session_state[key]
+  #   else:
+  #      pass
+  #else:
+  #     pass
                   
                   
 def input_ratings(json,INP):
@@ -423,11 +426,11 @@ def calculate_and_plot_user_preference_m2(Input,input):
                   
 if  choose == "method2":
    
-   _Input = st.file_uploader("upload the input csv", type='csv',key="method2")
+   #_Input = st.file_uploader("upload the input csv", type='csv',key="method2")
 
 
 
-   if _Input is not None:
+   #if _Input is not None:
      
       input = pd.read_csv(_Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
@@ -472,14 +475,14 @@ if  choose == "method2":
                        Slb3 = survey.selectbox("rating:", options=[1,2,3,4],id=f"D_{pages.current}",label_visibility="collapsed")
                with padding3:
                        st.markdown(f"<p style='text-align: center;'>{(input.iloc[pages.current].tolist())[3].strip()}</p>", unsafe_allow_html=True)
-   elif _Input is None:
-      if len(list(st.session_state)) != 0:
-        for key in st.session_state.keys():
-            del st.session_state[key]
-      else:
-         pass
-   else:
-        pass
+   #elif _Input is None:
+   #   if len(list(st.session_state)) != 0:
+   #     for key in st.session_state.keys():
+   #         del st.session_state[key]
+   #   else:
+   #      pass
+   #else:
+   #     pass
          
                   
                   
