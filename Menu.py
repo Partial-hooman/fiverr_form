@@ -495,12 +495,18 @@ if  choose == "method2":
    #     pass
          
 if choose == "export":
+   if st.session_state.output1 == "" and st.session_state.output2 == "":
+      st.header("no results to export yet.")
+   else:
+      pass
    if st.session_state.output1 != "":
+      st.subheader("method1 results:")
       html = create_download_link((st.session_state.output1).output(dest="S").encode("latin-1"), "Graphs")
       st.markdown(html, unsafe_allow_html=True)
    else:
         pass
    if st.session_state.output2 != "":
+      st.subheader("method2 results:")
       html = create_download_link((st.session_state.output2).output(dest="S").encode("latin-1"), "Graphs")
       st.markdown(html, unsafe_allow_html=True)
    else:
