@@ -516,6 +516,7 @@ if choose == "export":
    else:
         pass
    if st.session_state.output1 != "" and st.session_state.output2 != "":
+     try:
       st.subheader("combined results:")
       merger = PdfMerger()
       merger.append("output1.pdf")
@@ -525,8 +526,10 @@ if choose == "export":
       byte.seek(0)
       st.download_button("Download combined results", data=byte, file_name="combined.pdf",mime='application/octet-stream')
       merger.close()
-      #os.remove("output1.pdf")
-      #os.remove("output2.pdf")     
+      os.remove("output1.pdf")
+      os.remove("output2.pdf") 
+     except Exception as e:
+       st.write(e)   
    else:
       pass
       
