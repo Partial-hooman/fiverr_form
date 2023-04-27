@@ -10,6 +10,11 @@ import streamlit_survey as ss
 import pandas as pd
 from streamlit_option_menu import option_menu
 
+if "output1" not in st.session_state:
+    st.session_state["output1"] = ""
+if "output2" not in st.session_state:
+    st.session_state["output2"] = ""
+
 
 
 Input = 'input.csv'
@@ -174,9 +179,10 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    pdf.add_page()
    pdf.image("fig2.png",x=-50)
    pdf.cell(40, 10, 'User preference (pie chart)',align = 'L')
+   st.session_state.output1 = pdf
    # Download the pdf from the buffer
-   html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
-   st.markdown(html, unsafe_allow_html=True)
+   #html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
+   #st.markdown(html, unsafe_allow_html=True)
    os.remove("fig1.png")
    os.remove("fig2.png")
    os.remove("Df_fig.png")
@@ -189,7 +195,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
 
 
 with st.sidebar:
-    choose = option_menu("Car comparison", ["method1","method2"])
+    choose = option_menu("Car comparison", ["method1","method2","export"])
     
 
 if choose == "method1":
@@ -409,9 +415,10 @@ def calculate_and_plot_user_preference_m2(Input,input):
    pdf.add_page()
    pdf.image("fig2.png",x=25)
    pdf.cell(40, 1, 'User preference (pie chart)',align = 'L')
+   st.session_state.output2 = pdf
    # Download the pdf from the buffer
-   html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
-   st.markdown(html, unsafe_allow_html=True)
+   #html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
+   #st.markdown(html, unsafe_allow_html=True)
    os.remove("fig1.png")
    os.remove("fig2.png")
    os.remove("Df_fig.png")
@@ -487,7 +494,16 @@ if  choose == "method2":
    #else:
    #     pass
          
-                  
+if choose == "export":
+   if st.session_state.output1 != "":
+      html = create_download_link((st.session_state.output1).output(dest="S").encode("latin-1"), "Graphs")
+      st.markdown(html, unsafe_allow_html=True)
+   if st.session_state.output2 != "":
+      html = create_download_link((st.session_state.output2).output(dest="S").encode("latin-1"), "Graphs")
+      st.markdown(html, unsafe_allow_html=True)
+      
+      
+    
                   
                   
                   
