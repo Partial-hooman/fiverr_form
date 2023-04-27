@@ -498,7 +498,7 @@ if  choose == "method2":
    #else:
    #     pass
  
-@st.cache
+
 def merge(pdf1,pdf2):
       merger = PdfMerger()
       merger.append(pdf1)
@@ -508,8 +508,8 @@ def merge(pdf1,pdf2):
       byte.seek(0)
       #st.download_button("Download combined results", data=byte, file_name="combined.pdf",mime='application/octet-stream')
       merger.close()
-      os.remove(pdf1)
-      os.remove(pdf2) 
+      #os.remove(pdf1)
+      #os.remove(pdf2) 
       return byte
 
 
