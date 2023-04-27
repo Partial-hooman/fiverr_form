@@ -498,7 +498,7 @@ if choose == "export":
    if st.session_state.output1 != "":
       html = create_download_link((st.session_state.output1).output(dest="S").encode("latin-1"), "Graphs")
       st.markdown(html, unsafe_allow_html=True)
-    else:
+   else:
         pass
    if st.session_state.output2 != "":
       html = create_download_link((st.session_state.output2).output(dest="S").encode("latin-1"), "Graphs")
