@@ -447,7 +447,7 @@ if  choose == "method2":
 
 
       #generating the survey
-      survey = ss1.StreamlitSurvey("Survey_method_2")
+      survey = ss.StreamlitSurvey("Survey_method_2")
       pages = survey.pages(len(input.index), on_submit=lambda: calculate_and_plot_user_preference_m2(input,input_ratings(survey.to_json(),input)))#,S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
 
       # generating the survey radios
