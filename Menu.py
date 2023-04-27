@@ -6,7 +6,7 @@ import tempfile
 from fpdf import FPDF
 import plotly.express as px
 import streamlit as st
-#import streamlit_survey as ss
+import streamlit_survey as ss
 import pandas as pd
 from streamlit_option_menu import option_menu
 
@@ -200,11 +200,7 @@ if choose == "method1":
 
   #if Input is not None:
     #if Lookup is not None:
-      try:
-         del sys.modules["streamlit_survey"]
-      except:
-         pass
-      import streamlit_survey as ss
+  
       input = pd.read_csv(Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
       B = (input.iloc[:,1]).tolist()
@@ -229,7 +225,7 @@ if choose == "method1":
       #f_i = (f.read()).split('\n')
 
       #generating the survey
-      survey = ss.StreamlitSurvey("Survey Example - Advanced Usage")
+      survey = ss.StreamlitSurvey("Survey_method_1")
       pages = survey.pages(len(input.index), on_submit=lambda: calculate_and_plot_user_preference(input,lookup,input_selection(survey.to_json()),S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
 
       # generating the survey radios
@@ -438,11 +434,7 @@ if  choose == "method2":
 
 
    #if _Input is not None:
-      try:
-         del sys.modules["streamlit_survey"]
-      except:
-         pass
-      import streamlit_survey as ss1
+
       input = pd.read_csv(_Input,sep=r'\s*,\s*',engine='python')
       A = (input.iloc[:,0]).tolist()
       B = (input.iloc[:,1]).tolist()
@@ -455,7 +447,7 @@ if  choose == "method2":
 
 
       #generating the survey
-      survey = ss1.StreamlitSurvey("Survey Example - Advanced Usage")
+      survey = ss1.StreamlitSurvey("Survey_method_2")
       pages = survey.pages(len(input.index), on_submit=lambda: calculate_and_plot_user_preference_m2(input,input_ratings(survey.to_json(),input)))#,S_count,G_count,O_count,T_count,S,G,O,T,A,B,C,D)) # the survey is first converted to json after which it is given to the download function to download the CSV output
 
       # generating the survey radios
