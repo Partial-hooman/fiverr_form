@@ -1,4 +1,5 @@
 import os
+from pypdf import PdfMerger
 import sys
 import df2img
 import base64
@@ -9,6 +10,7 @@ import streamlit as st
 import streamlit_survey as ss
 import pandas as pd
 from streamlit_option_menu import option_menu
+from io import BytesIO
 
 if "output1" not in st.session_state:
     st.session_state["output1"] = ""
@@ -179,6 +181,7 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    pdf.add_page()
    pdf.image("fig2.png",x=-50)
    pdf.cell(40, 10, 'User preference (pie chart)',align = 'L')
+   pdf.output("output1.pdf",'F')
    st.session_state.output1 = pdf
    # Download the pdf from the buffer
    #html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
@@ -415,6 +418,7 @@ def calculate_and_plot_user_preference_m2(Input,input):
    pdf.add_page()
    pdf.image("fig2.png",x=25)
    pdf.cell(40, 1, 'User preference (pie chart)',align = 'L')
+   pdf.output("output2.pdf",'F')
    st.session_state.output2 = pdf
    # Download the pdf from the buffer
    #html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Graphs")
@@ -511,7 +515,18 @@ if choose == "export":
       st.markdown(html, unsafe_allow_html=True)
    else:
         pass
-      
+   if st.session_state.output1 != "" and st.session_state.output2 != "":
+      st.subheader("combined results:")
+      merger = PdfMerger()
+      merger.append("output1.pdf")
+      merger.append("output2.pdf")
+      byte = BytesIO()
+      merger.write(byte)
+      byte.seek(0)
+      st.download_button("Download combined results", data=byte, file_name="combined.pdf",mime='application/octet-stream')
+      merger.close()
+      os.remove(output1.pdf")
+      os.remove("output2.pdf")     
       
     
                   
