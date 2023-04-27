@@ -506,10 +506,11 @@ def merge(pdf1,pdf2):
       byte = BytesIO()
       merger.write(byte)
       byte.seek(0)
-      st.download_button("Download combined results", data=byte, file_name="combined.pdf",mime='application/octet-stream')
+      #st.download_button("Download combined results", data=byte, file_name="combined.pdf",mime='application/octet-stream')
       merger.close()
       os.remove(pdf1)
       os.remove(pdf2) 
+      return byte
 
 
         
@@ -533,7 +534,7 @@ if choose == "export":
    if st.session_state.output1 != "" and st.session_state.output2 != "":
      try:
       st.subheader("combined results:")
-      merge("output1.pdf","output2.pdf")
+      st.download_button("Download combined results", data=merge("output1.pdf","output2.pdf"), file_name="combined.pdf",mime='application/octet-stream')
      except Exception as e:
        st.write(e)   
    else:
