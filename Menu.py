@@ -525,8 +525,8 @@ if choose == "export":
       byte.seek(0)
       st.download_button("Download combined results", data=byte, file_name="combined.pdf",mime='application/octet-stream')
       merger.close()
-      os.remove("output1.pdf")
-      os.remove("output2.pdf")     
+      #os.remove("output1.pdf")
+      #os.remove("output2.pdf")     
    else:
       pass
       
