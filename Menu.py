@@ -192,8 +192,8 @@ def calculate_and_plot_user_preference(Input,Lookup,input,S_count,G_count,O_coun
    os.remove("Df_fig2.png")      
    
   except Exception as e:
-    st.write(e)
-    st.stop()
+    #st.write(e)
+    #st.stop()
     for key in st.session_state.keys():
         del st.session_state[key]
     st.experimental_rerun()
